@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Terms of Service — CustodyBuddy.com</title>
+  <meta name="description" content="Official Terms of Service for CustodyBuddy.com, governing use of the AI legal toolkit and platform." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Terms of Service — CustodyBuddy.com" />
+  <meta property="og:description" content="Official Terms of Service for CustodyBuddy.com." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://custodybuddy.com/terms-of-service/" />
+  <meta property="og:image" content="https://custodybuddy.com/assets/img/og-custodybuddy.jpg" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'custom-gold': '#FFD700',
+            'custom-gold-light': '#E9D09B',
+            'custom-navy-dark': '#010A1A',
+            'custom-dark-blue': '#0D1A2E',
+            'section-dark': '#0A0A0A'
+          },
+          fontFamily: {
+            inter: ['Inter', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif']
+          },
+          boxShadow: {
+            gold: '0 0 0 3px rgba(255,215,0,0.35)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet" />
+
+  <!-- Base tweaks (no utility override) -->
+  <style>
+    body{background:#000}
+    @media (prefers-reduced-motion: reduce) {
+      * {animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important;}
+    }
+    /* High-visibility focus ring for keyboard users */
+    :focus-visible { outline: 2px solid #FFD700; outline-offset: 2px; }
+  </style>
+
+  <!-- JSON-LD (WebPage) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Terms of Service — CustodyBuddy.com",
+    "url": "https://custodybuddy.com/terms-of-service/",
+    "description": "Official Terms of Service for CustodyBuddy.com."
+  }
+  </script>
+</head>
+
+<body class="bg-black text-white font-inter antialiased min-h-screen">
+  <!-- Skip link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:bg-black focus:text-custom-gold focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-gold z-[100]">
+    Skip to content
+  </a>
+
+  <!-- Header / Nav -->
+  <header class="fixed top-0 left-0 w-full z-50 border-b border-gray-800 bg-black/90 backdrop-blur-sm">
+    <nav aria-label="Primary" class="py-4">
+      <div class="container mx-auto px-4 flex items-center justify-between">
+        <!-- Brand -->
+        <a href="https://custodybuddy.com" class="text-xl md:text-2xl font-extrabold tracking-tight hover:opacity-90 focus:opacity-90">
+          <span class="text-custom-gold">CUSTODY</span><span class="text-white">BUDDY</span><span class="text-custom-gold">.COM</span>
+        </a>
+
+        <!-- Desktop links -->
+        <div class="hidden md:flex items-center gap-6 text-sm">
+          <a href="https://custodybuddy.com" class="text-gray-300 hover:text-custom-gold">Home</a>
+          <a href="/about" class="text-gray-300 hover:text-custom-gold">About</a>
+          <a href="/donate" class="text-gray-300 hover:text-custom-gold">Donate</a>
+          <a href="https://blog.custodybuddy.com" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-custom-gold">Blog</a>
+          <a href="/contact" class="text-gray-300 hover:text-custom-gold">Contact</a>
+          <a href="/incident-report" class="inline-block bg-custom-gold text-black font-semibold py-2 px-5 rounded-full border-2 border-custom-gold hover:opacity-90 focus:opacity-90">
+            Start Now
+          </a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-button"
+                class="md:hidden p-2 rounded-lg text-white hover:bg-gray-800"
+                aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false">
+          <svg id="icon-menu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="md:hidden hidden bg-black/95 border-t border-gray-800">
+        <div class="px-4 py-2 flex flex-col text-base">
+          <a class="py-2 text-gray-300 hover:text-custom-gold hover:bg-gray-900 rounded-lg" href="https://custodybuddy.com">Home</a>
+          <a class="py-2 text-gray-300 hover:text-custom-gold hover:bg-gray-900 rounded-lg" href="/about">About</a>
+          <a class="py-2 text-gray-300 hover:text-custom-gold hover:bg-gray-900 rounded-lg" href="/donate">Donate</a>
+          <a class="py-2 text-gray-300 hover:text-custom-gold hover:bg-gray-900 rounded-lg" href="https://blog.custodybuddy.com" target="_blank" rel="noopener noreferrer">Blog</a>
+          <a class="py-2 text-gray-300 hover:text-custom-gold hover:bg-gray-900 rounded-lg" href="/contact">Contact</a>
+          <a class="py-2 text-custom-gold bg-gray-900 rounded-lg" href="/terms-of-service/">Terms of Service</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main id="main-content" class="pt-24 md:pt-28 bg-custom-navy-dark">
+    <section class="container mx-auto px-4 max-w-4xl py-10 md:py-14">
+      <!-- Title + meta -->
+      <header class="mb-8">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-custom-gold">Terms of Service</h1>
+        <p class="text-sm text-gray-400 mt-3 italic">
+          These Terms govern your use of the CustodyBuddy.com AI legal toolkit and platform (“Service”).
+        </p>
+        <p class="text-xs text-gray-400 mt-2 border-b border-gray-700 pb-4">
+          <span class="font-semibold">Effective Date:</span> October 19, 2024
+        </p>
+      </header>
+
+      <!-- Quick TOC -->
+      <nav aria-label="Table of contents" class="mb-8">
+        <ul class="grid sm:grid-cols-2 gap-2 text-sm">
+          <li><a class="underline underline-offset-4 hover:text-custom-gold" href="#no-legal-advice">1. No Legal Advice</a></li>
+          <li><a class="underline underline-offset-4 hover:text-custom-gold" href="#user-accounts">2. User Accounts</a></li>
+          <li><a class="underline underline-offset-4 hover:text-custom-gold" href="#user-responsibilities">3. Responsibilities & Prohibited Uses</a></li>
+          <li><a class="underline underline-offset-4 hover:text-custom-gold" href="#intellectual-property">4. Intellectual Property</a></li>
+          <li><a class="underline underline-offset-4 hover:text-custom-gold" href="#limitation-of-liability">5. Limitation of Liability</a></li>
+          <li><a class="underline underline-offset-4 hover:text-custom-gold" href="#governing-law">6. Governing Law & Jurisdiction</a></li>
+          <li><a class="underline underline-offset-4 hover:text-custom-gold" href="#changes">7. Changes to Terms</a></li>
+          <li><a class="underline underline-offset-4 hover:text-custom-gold" href="#contact">8. Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Sections -->
+      <article class="space-y-12 leading-relaxed text-gray-200">
+        <!-- 1 -->
+        <section id="no-legal-advice" aria-labelledby="h-no-legal-advice">
+          <h2 id="h-no-legal-advice" class="text-3xl md:text-4xl font-extrabold mb-6 text-white border-b-4 border-custom-gold pb-3">
+            1. No Legal Advice (Mandatory Read)
+          </h2>
+          <div class="bg-red-900/30 border border-red-700 p-6 rounded-xl shadow-2xl">
+            <h3 class="text-2xl font-bold mb-4 text-custom-gold">THE SERVICE IS NOT A LAW FIRM AND DOES NOT PROVIDE LEGAL ADVICE.</h3>
+            <ul class="list-disc ml-6 space-y-3 text-red-100">
+              <li><strong>Informational Tool Only:</strong> Information and documents are for informational, educational, and self-help purposes only; not a substitute for legal advice.</li>
+              <li><strong>No Attorney-Client Privilege:</strong> Use of the Service does not create an attorney-client relationship.</li>
+              <li><strong>Responsibility:</strong> You are responsible for your use of information and documents. Consult a qualified legal professional for advice about your specific situation.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 2 -->
+        <section id="user-accounts" aria-labelledby="h-user-accounts">
+          <h2 id="h-user-accounts" class="text-3xl md:text-4xl font-extrabold mb-6 text-white border-b-4 border-custom-gold/50 pb-3">
+            2. User Accounts
+          </h2>
+          <div class="bg-section-dark p-6 rounded-xl border-l-4 border-custom-gold shadow-lg">
+            <ul class="list-disc ml-6 space-y-3">
+              <li><strong>Eligibility:</strong> You must be at least 18 years old to use the Service.</li>
+              <li><strong>Registration:</strong> Provide accurate, complete, and current information; otherwise your account may be terminated.</li>
+              <li><strong>Security:</strong> You are responsible for safeguarding your password and for activity under your account. Notify us of any breach.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 3 -->
+        <section id="user-responsibilities" aria-labelledby="h-user-responsibilities">
+          <h2 id="h-user-responsibilities" class="text-3xl md:text-4xl font-extrabold mb-6 text-white border-b-4 border-custom-gold/50 pb-3">
+            3. User Responsibilities and Prohibited Uses
+          </h2>
+          <p class="mb-6">
+            You agree not to use the Service for any unlawful purpose or in any way that violates these Terms. Prohibited activities include:
+          </p>
+          <div class="bg-section-dark p-6 rounded-xl border-l-4 border-custom-gold shadow-lg">
+            <ul class="list-disc ml-6 space-y-3">
+              <li>Submitting abusive, harassing, defamatory, fraudulent, or otherwise objectionable content.</li>
+              <li>Uploading content containing malware or malicious code.</li>
+              <li>Attempting to gain unauthorized access to the Service or related systems.</li>
+              <li>Using the Service for purposes other than personal self-help in family law matters.</li>
+              <li>Selling, licensing, or exploiting any part of the Service or its output commercially without explicit written consent.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 4 -->
+        <section id="intellectual-property" aria-labelledby="h-ip">
+          <h2 id="h-ip" class="text-3xl md:text-4xl font-extrabold mb-6 text-white border-b-4 border-custom-gold/50 pb-3">
+            4. Intellectual Property
+          </h2>
+          <div class="bg-section-dark p-6 rounded-xl border-l-4 border-custom-gold shadow-lg">
+            <h3 class="text-2xl font-semibold mb-4 text-custom-gold-light">A. Ownership of the Service</h3>
+            <p class="text-gray-300 mb-4">
+              The Service and its original content (excluding User Content), features, and functionality are and will remain the exclusive property of CustodyBuddy.com.
+            </p>
+            <h3 class="text-2xl font-semibold mb-4 text-custom-gold-light">B. User Content</h3>
+            <p class="text-gray-300">
+              You retain rights to content you submit. You grant a non-exclusive, worldwide, royalty-free license to use, modify, display, reproduce, and distribute such content solely to operate and improve the Service.
+            </p>
+          </div>
+        </section>
+
+        <!-- 5 -->
+        <section id="limitation-of-liability" aria-labelledby="h-limitation">
+          <h2 id="h-limitation" class="text-3xl md:text-4xl font-extrabold mb-6 text-white border-b-4 border-custom-gold/50 pb-3">
+            5. Limitation of Liability
+          </h2>
+          <p class="mb-4">
+            CustodyBuddy.com and its affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of profits, data, or goodwill, resulting from:
+          </p>
+          <ul class="list-disc ml-6 space-y-3">
+            <li>Your access to or inability to access the Service;</li>
+            <li>Any conduct or content of third parties on the Service;</li>
+            <li>Any content obtained from the Service; or</li>
+            <li>Unauthorized access, use, or alteration of your transmissions or content.</li>
+          </ul>
+        </section>
+
+        <!-- 6 -->
+        <section id="governing-law" aria-labelledby="h-law">
+          <h2 id="h-law" class="text-3xl md:text-4xl font-extrabold mb-6 text-white border-b-4 border-custom-gold/50 pb-3">
+            6. Governing Law and Jurisdiction
+          </h2>
+          <p>
+            These Terms are governed by the laws of Ontario, Canada, without regard to conflict of law provisions.
+            Any legal action arising under these Terms will be brought exclusively in the courts of Ontario, Canada.
+          </p>
+        </section>
+
+        <!-- 7 -->
+        <section id="changes" aria-labelledby="h-changes">
+          <h2 id="h-changes" class="text-3xl md:text-4xl font-extrabold mb-6 text-white border-b-4 border-custom-gold/50 pb-3">
+            7. Changes to Terms
+          </h2>
+          <p>
+            We may modify or replace these Terms at any time. We will provide at least 30 days’ notice before new terms take effect. Continued use of the Service after revisions become effective constitutes acceptance.
+          </p>
+        </section>
+
+        <!-- 8 -->
+        <section id="contact" aria-labelledby="h-contact">
+          <h2 id="h-contact" class="text-3xl md:text-4xl font-extrabold mb-6 text-white border-b-4 border-custom-gold/50 pb-3">
+            8. Contact Us
+          </h2>
+          <p class="mb-3">Questions about these Terms?</p>
+          <p class="text-lg font-semibold text-custom-gold mb-2">Email</p>
+          <p class="font-mono text-base md:text-lg text-white bg-black/50 p-3 inline-block rounded-lg border border-custom-gold/50">
+            custodybuddyai@gmail.com
+          </p>
+        </section>
+      </article>
+
+      <!-- Back to top -->
+      <div class="mt-12">
+        <a href="#top" class="inline-flex items-center gap-2 text-sm underline underline-offset-4 hover:text-custom-gold">
+          ↑ Back to top
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-section-dark py-6 border-t border-custom-gold/20 text-center text-gray-400">
+    <p class="text-sm">&copy; 2024 CustodyBuddy.com. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Minimal, accessible JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('mobile-menu-button');
+      const menu = document.getElementById('mobile-menu');
+      const iconMenu = document.getElementById('icon-menu');
+      const iconClose = document.getElementById('icon-close');
+
+      if (btn && menu) {
+        btn.addEventListener('click', () => {
+          const nowHidden = menu.classList.toggle('hidden');
+          const expanded = !nowHidden;
+          btn.setAttribute('aria-expanded', String(expanded));
+          iconMenu.classList.toggle('hidden', expanded);
+          iconClose.classList.toggle('hidden', !expanded);
+          if (expanded) {
+            // Move focus to first link for keyboard users
+            const firstLink = menu.querySelector('a');
+            firstLink && firstLink.focus();
+          }
+        });
+
+        // Close on link click (better UX)
+        menu.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => {
+            if (!menu.classList.contains('hidden')) {
+              menu.classList.add('hidden');
+              btn.setAttribute('aria-expanded', 'false');
+              iconMenu.classList.remove('hidden');
+              iconClose.classList.add('hidden');
+              btn.focus();
+            }
+          });
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
+            menu.classList.add('hidden');
+            btn.setAttribute('aria-expanded', 'false');
+            iconMenu.classList.remove('hidden');
+            iconClose.classList.add('hidden');
+            btn.focus();
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

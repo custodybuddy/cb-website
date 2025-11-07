@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Test AI — OpenAI & Gemini</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --brand:#C2A85C;
+      --card:#0F223F;
+      --bg:#0B1C33;
+    }
+    body{ background:#0B1C33; color:#fff; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";}
+    .card{ background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:16px; }
+    .label{ color:#cbd5e1 }
+    .hint{ color:#9aa7b2 }
+    .btn{ background:var(--brand); color:#111827 }
+    .btn:disabled{ opacity:.6; cursor:not-allowed }
+    .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace; }
+    .code{ white-space:pre-wrap; word-break:break-word }
+    .pill{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1) }
+    a{ color:#93c5fd; text-decoration: underline; }
+  </style>
+</head>
+<body class="min-h-screen">
+  <div class="max-w-5xl mx-auto px-4 py-8">
+    <header class="mb-6">
+      <h1 class="text-3xl font-extrabold">Test AI — OpenAI & Gemini</h1>
+      <p class="hint mt-1">Posts to your PHP relay that reads <code class="mono">/secure/cb_keys.php</code>. No API keys in the browser.</p>
+    </header>
+
+    <!-- Endpoint notice -->
+    <div class="card p-4 mb-6">
+      <p class="label text-sm mb-2">Relay endpoint</p>
+      <div class="flex items-center gap-2">
+        <input id="endpoint" class="w-full px-3 py-2 rounded bg-black/30 border border-white/10 mono" value="/api/relay.php" />
+        <button id="saveEndpoint" class="btn px-3 py-2 rounded font-semibold">Use</button>
+      </div>
+      <p class="hint text-sm mt-2">If your PHP file has a different path (e.g. <code class="mono">/api/cb_relay.php</code>), change it here.</p>
+    </div>
+
+    <!-- Form -->
+    <div class="grid gap-6 md:grid-cols-2">
+      <section class="card p-5 space-y-4">
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="label text-sm">Provider</label>
+            <select id="provider" class="w-full mt-1 px-3 py-2 rounded bg-black/30 border border-white/10">
+              <option value="openai">OpenAI</option>
+              <option value="gemini">Gemini</option>
+            </select>
+          </div>
+          <div>
+            <label class="label text-sm">Model</label>
+            <input id="model" class="w-full mt-1 px-3 py-2 rounded bg-black/30 border border-white/10 mono" placeholder="auto" />
+            <p class="hint text-xs mt-1" id="modelHint">Default: <span class="mono">gpt-4o-mini</span> (OpenAI) • <span class="mono">gemini-2.5-flash</span> (Gemini)</p>
+          </div>
+        </div>
+
+        <div>
+          <label class="label text-sm">System (optional)</label>
+          <textarea id="system" rows="2" class="w-full mt-1 px-3 py-2 rounded bg-black/30 border border-white/10" placeholder="You are a helpful assistant."></textarea>
+        </div>
+
+        <div>
+          <label class="label text-sm">User message</label>
+          <textarea id="user" rows="6" class="w-full mt-1 px-3 py-2 rounded bg-black/30 border border-white/10" placeholder="Say hi and tell me a fun fact."></textarea>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="label text-sm">Temperature: <span id="tempVal" class="mono">0.2</span></label>
+            <input id="temperature" type="range" min="0" max="1" step="0.05" value="0.2" class="w-full">
+          </div>
+          <div>
+            <label class="label text-sm">Max tokens</label>
+            <input id="maxTokens" type="number" min="32" max="8192" value="512" class="w-full mt-1 px-3 py-2 rounded bg-black/30 border border-white/10 mono">
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button id="send" class="btn px-4 py-2 rounded font-semibold">Send</button>
+          <button id="clear" class="px-4 py-2 rounded pill">Clear</button>
+          <span id="status" class="hint text-sm"></span>
+        </div>
+      </section>
+
+      <!-- Output -->
+      <section class="space-y-4">
+        <div class="card p-5">
+          <div class="flex items-center justify-between">
+            <h2 class="text-lg font-bold">Reply</h2>
+            <button id="copyReply" class="px-3 py-1 rounded pill text-sm">Copy</button>
+          </div>
+          <pre id="reply" class="code mono mt-3"></pre>
+        </div>
+
+        <div class="card p-5">
+          <div class="flex items-center justify-between">
+            <h2 class="text-lg font-bold">Raw JSON</h2>
+            <button id="copyJSON" class="px-3 py-1 rounded pill text-sm">Copy</button>
+          </div>
+          <pre id="raw" class="code mono mt-3"></pre>
+        </div>
+      </section>
+    </div>
+
+    <footer class="mt-8 hint text-sm">
+      <p>Tip: If you see a CORS error, add your site’s origin to <code class="mono">CB_ALLOWED_ORIGINS</code> in <code class="mono">/secure/cb_keys.php</code>.</p>
+    </footer>
+  </div>
+
+  <script>
+    // ====== Config (editable from UI) ======
+    let ENDPOINT = "/api/ai.php";
+
+    // ====== Elements ======
+    const $ = (id) => document.getElementById(id);
+    const providerEl   = $("provider");
+    const modelEl      = $("model");
+    const modelHintEl  = $("modelHint");
+    const systemEl     = $("system");
+    const userEl       = $("user");
+    const tempEl       = $("temperature");
+    const tempValEl    = $("tempVal");
+    const maxTokensEl  = $("maxTokens");
+    const sendBtn      = $("send");
+    const clearBtn     = $("clear");
+    const statusEl     = $("status");
+    const replyEl      = $("reply");
+    const rawEl        = $("raw");
+    const copyReplyBtn = $("copyReply");
+    const copyJSONBtn  = $("copyJSON");
+    const endpointEl   = $("endpoint");
+    const saveEndpoint = $("saveEndpoint");
+
+    // Set defaults per provider
+    function applyProviderDefaults() {
+      const p = providerEl.value;
+      if (!modelEl.value.trim()) {
+        modelEl.placeholder = p === "openai" ? "gpt-4o-mini" : "gemini-2.5-flash";
+      }
+      modelHintEl.innerHTML = 'Default: <span class="mono">gpt-4o-mini</span> (OpenAI) • <span class="mono">gemini-2.5-flash</span> (Gemini)';
+    }
+    providerEl.addEventListener("change", applyProviderDefaults);
+    applyProviderDefaults();
+
+    // Temperature display
+    tempEl.addEventListener("input", () => {
+      tempValEl.textContent = Number(tempEl.value).toFixed(2);
+    });
+
+    // Save endpoint
+    endpointEl.value = ENDPOINT;
+    saveEndpoint.addEventListener("click", () => {
+      ENDPOINT = endpointEl.value.trim() || ENDPOINT;
+      pulse(statusEl, `Using endpoint: ${ENDPOINT}`);
+    });
+
+    // Helpers
+    function pulse(el, text, ok=true){
+      el.textContent = text;
+      el.style.color = ok ? "#a7f3d0" : "#fecaca";
+      setTimeout(()=>{ el.textContent=""; }, 3500);
+    }
+    function setBusy(state){
+      sendBtn.disabled = state;
+      sendBtn.textContent = state ? "Working…" : "Send";
+    }
+    function pretty(obj){
+      try { return JSON.stringify(obj, null, 2); } catch { return String(obj); }
+    }
+
+    // Build messages array compatible with your relay
+    function buildMessages(system, user){
+      const msgs = [];
+      if (system && system.trim()){
+        msgs.push({ role: "system", content: system.trim() });
+      }
+      msgs.push({ role: "user", content: user.trim() || "Hello!" });
+      return msgs;
+    }
+
+    // Extract a friendly reply from the relay JSON
+    function extractReply(json){
+      // Your PHP returns: { provider, model, reply, raw }
+      if (json && typeof json.reply === "string") return json.reply;
+      if (json && json.raw) {
+        // Fallbacks if needed
+        try {
+          // OpenAI-style
+          const m = json.raw.choices?.[0]?.message?.content;
+          if (m) return m;
+        } catch {}
+        try {
+          // Anthropic/Gemini style fallback (if you ever route them similarly)
+          const t = json.raw.content?.[0]?.text;
+          if (t) return t;
+        } catch {}
+      }
+      return "(No reply text found. See Raw JSON.)";
+    }
+
+    // Send
+    sendBtn.addEventListener("click", async () => {
+      const provider = providerEl.value;
+      const model = modelEl.value.trim() || (provider === "openai" ? "gpt-4o-mini" : "gemini-2.5-flash");
+      const system = systemEl.value;
+      const user   = userEl.value;
+      const temperature = Number(tempEl.value);
+      const max_tokens  = Number(maxTokensEl.value) || 512;
+
+      replyEl.textContent = "";
+      rawEl.textContent = "";
+      setBusy(true);
+
+      const payload = {
+        provider,
+        model,
+        temperature,
+        max_tokens,
+        messages: buildMessages(system, user),
+        // Optional: some relays accept an explicit "system" too
+        system: system?.trim() || undefined
+      };
+
+      try{
+        const res = await fetch(ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        const text = await res.text();
+        let json;
+        try { json = JSON.parse(text); } catch { json = { parse_error: true, body: text }; }
+
+        rawEl.textContent = pretty(json);
+
+        if (!res.ok){
+          pulse(statusEl, `HTTP ${res.status} — see Raw JSON`, false);
+          replyEl.textContent = "(Error)";
+        } else {
+          const friendly = extractReply(json);
+          replyEl.textContent = friendly;
+          pulse(statusEl, "Success ✓");
+        }
+      } catch(err){
+        rawEl.textContent = pretty({ error: String(err) });
+        pulse(statusEl, "Network error — see Raw JSON", false);
+      } finally {
+        setBusy(false);
+      }
+    });
+
+    // Clear
+    clearBtn.addEventListener("click", () => {
+      systemEl.value = "";
+      userEl.value = "";
+      replyEl.textContent = "";
+      rawEl.textContent = "";
+      pulse(statusEl, "Cleared");
+    });
+
+    // Copy buttons
+    copyReplyBtn.addEventListener("click", async ()=>{
+      try{
+        await navigator.clipboard.writeText(replyEl.textContent || "");
+        pulse(statusEl, "Reply copied ✓");
+      }catch{ pulse(statusEl, "Copy failed", false); }
+    });
+    copyJSONBtn.addEventListener("click", async ()=>{
+      try{
+        await navigator.clipboard.writeText(rawEl.textContent || "");
+        pulse(statusEl, "JSON copied ✓");
+      }catch{ pulse(statusEl, "Copy failed", false); }
+    });
+  </script>
+</body>
+</html>

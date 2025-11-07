@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Privacy Policy — CustodyBuddy.com</title>
+  <meta name="description" content="Official Privacy Policy for CustodyBuddy.com detailing data collection, usage, security, and user rights." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Privacy Policy — CustodyBuddy.com" />
+  <meta property="og:description" content="How CustodyBuddy.com collects, uses, and protects your data, and your privacy rights." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://custodybuddy.com/privacy-policy/" />
+  <meta property="og:image" content="https://custodybuddy.com/assets/img/og-custodybuddy.jpg" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'custom-gold': '#FFD700',
+            'custom-gold-light': '#E9D09B',
+            'custom-navy-dark': '#010A1A',
+            'custom-dark-blue': '#0D1A2E',
+            'section-dark': '#0A0A0A'
+          },
+          fontFamily: {
+            inter: ['Inter','system-ui','Segoe UI','Roboto','Helvetica','Arial','sans-serif']
+          },
+          boxShadow: {
+            gold: '0 0 0 3px rgba(255,215,0,0.35)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet" />
+
+  <!-- Base tweaks -->
+  <style>
+    body { background:#000 }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
+    }
+    :focus-visible { outline:2px solid #FFD700; outline-offset:2px; }
+  </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Privacy Policy — CustodyBuddy.com",
+    "url": "https://custodybuddy.com/privacy-policy/",
+    "description": "Official Privacy Policy for CustodyBuddy.com."
+  }
+  </script>
+</head>
+
+<body class="bg-black text-white font-inter antialiased min-h-screen">
+  <!-- Skip link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:bg-black focus:text-custom-gold focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-gold z-[100]">
+    Skip to content
+  </a>
+
+  <!-- Header / Nav -->
+  <header class="fixed top-0 left-0 w-full z-50 border-b border-gray-800 bg-black/90 backdrop-blur-sm">
+    <nav aria-label="Primary" class="py-4">
+      <div class="container mx-auto px-4 flex items-center justify-between">
+        <!-- Brand -->
+        <a href="https://custodybuddy.com" class="text-xl md:text-2xl font-extrabold tracking-tight hover:opacity-90 focus:opacity-90">
+          <span class="text-custom-gold">CUSTODY</span><span class="text-white">BUDDY</span><span class="text-custom-gold">.COM</span>
+        </a>
+
+        <!-- Desktop links -->
+        <div class="hidden md:flex items-center gap-6 text-sm">
+          <a href="https://custodybuddy.com" class="text-gray-300 hover:text-custom-gold">Home</a>
+          <a href="/about" class="text-gray-300 hover:text-custom-gold">About</a>
+          <a href="/donate" class="text-gray-300 hover:text-custom-gold">Donate</a>
+          <a href="https://blog.custodybuddy.com" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-custom-gold">Blog</a>
+          <a href="/contact" class="text-gray-300 hover:text-custom-gold">Contact</a>
+          <a href="/incident-report" class="inline-block bg-custom-gold text-black font-semibold py-2 px-5 rounded-full border-2 border-custom-gold hover:opacity-90 focus:opacity-90">
+            Start Now
+          </a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-button"
+                class="md:hidden p-2 rounded-lg text-white hover:bg-gray-800"
+                aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false">
+          <svg id="icon-menu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="md:hidden hidden bg-black/95 border-t border-gray-800">
+        <div class="px-4 py-2 flex flex-col text-base">
+          <a class="py-2 text-gray-300 hover:text-custom-gold hover:bg-gray-900 rounded-lg" href="https://custodybuddy.com">Home</a>
+          <a class="py-2 text-gray-300 hover:text-custom-gold hover:bg-gray-900 rounded-lg" href="/about">About</a>
+          <a class="py-2 text-gray-300 hover:text-custom-gold hover:bg-gray-900 rounded-lg" href="/donate">Donate</a>
+          <a class="py-2 text-gray-300 hover:text-custom-gold hover:bg-gray-900 rounded-lg" href="https://blog.custodybuddy.com" target="_blank" rel="noopener noreferrer">Blog</a>
+          <a class="py-2 text-gray-300 hover:text-custom-gold hover:bg-gray-900 rounded-lg" href="/contact">Contact</a>
+          <a class="py-2 text-custom-gold bg-gray-900 rounded-lg" href="/privacy-policy/">Privacy Policy</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main id="main-content" class="pt-24 md:pt-28 bg-custom-navy-dark">
+    <section class="container mx-auto px-4 max-w-4xl py-10 md:py-14">
+      <!-- Title + meta -->
+      <header class="mb-8">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-custom-gold">Privacy Policy</h1>
+        <p class="text-sm text-gray-400 mt-3 italic">
+          CustodyBuddy.com (“CustodyBuddy,” “we,” “us,” or “our”) respects your privacy and is committed to protecting your personal data.
+        </p>
+        <p class="text-xs text-gray-400 mt-2 border-b border-gray-700 pb-4">
+          <span class="font-semibold">Last Updated:</span> October 19, 2024
+        </p>
+      </header>
+
+      <!-- TOC -->
+      <nav aria-label="Table of contents" class="mb-8">
+        <ul class="grid sm:grid-cols-2 gap-2 text-sm">
+          <li><a class="underline underline-offset-4 hover:text-custom-gold" href="#info-we-collect">1. Information We Collect</a></li>
+          <li><a class="underline underline-offset-4 hover:text-custom-gold" href="#how-we-use">2. How We Use Your Information</a></li>
+          <li><a class="underline underline-offset-4 hover:text-custom-gold" href="#sharing">3. How We Share Your Information</a></li>
+          <li><a class="underline underline-offset-4 hover:text-custom-gold" href="#security">4. Data Security</a></li>
+          <li><a class="underline underline-offset-4 hover:text-custom-gold" href="#retention">5. Data Retention</a></li>
+          <li><a class="underline underline-offset-4 hover:text-custom-gold" href="#rights">6. Your Data Protection Rights</a></li>
+          <li><a class="underline underline-offset-4 hover:text-custom-gold" href="#children">7. Children’s Privacy</a></li>
+          <li><a class="underline underline-offset-4 hover:text-custom-gold" href="#changes">8. Changes to This Privacy Policy</a></li>
+          <li><a class="underline underline-offset-4 hover:text-custom-gold" href="#contact">9. Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Content -->
+      <article class="space-y-12 leading-relaxed text-gray-200">
+        <!-- 1 -->
+        <section id="info-we-collect" aria-labelledby="h-collect">
+          <h2 id="h-collect" class="text-3xl md:text-4xl font-extrabold mb-6 text-white border-b-4 border-custom-gold pb-3">
+            1. Information We Collect
+          </h2>
+          <p class="mb-6">
+            We collect information to provide and improve the Service, manage your account, and ensure security. This includes:
+          </p>
+
+          <div class="bg-section-dark p-6 rounded-xl mb-6 border-l-4 border-custom-gold shadow-lg">
+            <h3 class="text-2xl font-semibold mb-4 text-custom-gold-light">A. Information You Provide</h3>
+            <ul class="list-disc ml-6 space-y-2">
+              <li><strong>Account Data:</strong> Email address and authentication tokens.</li>
+              <li><strong>Case Content:</strong> Text, documents, notes, communications, and data you upload/input/generate while using the tools and AI chat.</li>
+              <li><strong>Feedback & Communications:</strong> Messages you send for support or surveys.</li>
+            </ul>
+          </div>
+
+          <div class="bg-section-dark p-6 rounded-xl mb-6 border-l-4 border-custom-gold shadow-lg">
+            <h3 class="text-2xl font-semibold mb-4 text-custom-gold-light">B. AI-Generated & System Data</h3>
+            <ul class="list-disc ml-6 space-y-2">
+              <li><strong>Generated Content:</strong> Legal text, reports, and documents created based on your inputs.</li>
+              <li><strong>Service Metadata:</strong> Feature usage counts, document generation counts, and read/write operations.</li>
+            </ul>
+          </div>
+
+          <div class="bg-section-dark p-6 rounded-xl border-l-4 border-custom-gold shadow-lg">
+            <h3 class="text-2xl font-semibold mb-4 text-custom-gold-light">C. Usage & Technical Data</h3>
+            <ul class="list-disc ml-6 space-y-2">
+              <li><strong>Device Information:</strong> IP address, browser, OS, device identifiers.</li>
+              <li><strong>Usage Logs:</strong> Access times, pages viewed, and clickstream data.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 2 -->
+        <section id="how-we-use" aria-labelledby="h-use">
+          <h2 id="h-use" class="text-3xl md:text-4xl font-extrabold mb-6 text-white border-b-4 border-custom-gold/50 pb-3">
+            2. How We Use Your Information
+          </h2>
+          <ol class="list-decimal ml-6 space-y-4">
+            <li><strong>Provide the Service:</strong> Authenticate, process inputs, generate documents, and securely store case files.</li>
+            <li><strong>Improve the Service:</strong> Analyze usage, debug issues, and enhance model quality and safety.
+              <p class="font-bold text-sm bg-gray-900 p-3 rounded-lg mt-2 text-gray-200">
+                Note: Sensitive case content is processed under strict confidentiality protocols and is not used for public model training.
+              </p>
+            </li>
+            <li><strong>Security & Compliance:</strong> Detect and prevent fraud/abuse; comply with legal obligations.</li>
+            <li><strong>Support & Communication:</strong> Respond to requests and send important service-related notices.</li>
+          </ol>
+        </section>
+
+        <!-- 3 -->
+        <section id="sharing" aria-labelledby="h-sharing">
+          <h2 id="h-sharing" class="text-3xl md:text-4xl font-extrabold mb-6 text-white border-b-4 border-custom-gold/50 pb-3">
+            3. How We Share Your Information
+          </h2>
+          <p class="mb-6">We do not sell your personal data. We share it only when necessary or legally required:</p>
+          <ul class="list-disc ml-6 space-y-4">
+            <li><strong>Service Providers:</strong> Cloud hosting, analytics, and related vendors under strict confidentiality obligations.</li>
+            <li><strong>Legal Obligations:</strong> Disclosures required by law, subpoena, or to protect rights/safety.</li>
+            <li><strong>Business Transfers:</strong> In mergers/acquisitions/financings, provided the recipient adheres to this Policy.</li>
+          </ul>
+        </section>
+
+        <!-- 4 -->
+        <section id="security" aria-labelledby="h-security">
+          <h2 id="h-security" class="text-3xl md:text-4xl font-extrabold mb-6 text-white border-b-4 border-custom-gold/50 pb-3">
+            4. Data Security
+          </h2>
+          <ul class="list-disc ml-6 space-y-4">
+            <li><strong>Encryption:</strong> Data encrypted in transit (SSL/TLS) and at rest.</li>
+            <li><strong>Access Control:</strong> Limited to authorized personnel with need-to-know access.</li>
+            <li><strong>Authentication:</strong> Secure sign-in (e.g., Firebase Authentication).</li>
+          </ul>
+          <p class="font-bold text-sm bg-yellow-900/30 border border-custom-gold/50 p-4 rounded-lg mt-6 text-custom-gold">
+            Important: No method of transmission or storage is 100% secure.
+          </p>
+        </section>
+
+        <!-- 5 -->
+        <section id="retention" aria-labelledby="h-retention">
+          <h2 id="h-retention" class="text-3xl md:text-4xl font-extrabold mb-6 text-white border-b-4 border-custom-gold/50 pb-3">
+            5. Data Retention
+          </h2>
+          <ul class="list-disc ml-6 space-y-4">
+            <li>We retain personal information and case content while your account is active or as needed for the Service.</li>
+            <li>Upon account deletion, personal data and case content are removed from primary systems and backups within 90 days, subject to legal retention requirements.</li>
+          </ul>
+        </section>
+
+        <!-- 6 -->
+        <section id="rights" aria-labelledby="h-rights">
+          <h2 id="h-rights" class="text-3xl md:text-4xl font-extrabold mb-6 text-white border-b-4 border-custom-gold/50 pb-3">
+            6. Your Data Protection Rights
+          </h2>
+          <ul class="list-disc ml-6 space-y-4">
+            <li><strong>Access:</strong> Request copies of your personal data.</li>
+            <li><strong>Rectification:</strong> Request corrections to inaccurate or incomplete data.</li>
+            <li><strong>Erasure:</strong> Request deletion in certain circumstances (e.g., account deletion).</li>
+            <li><strong>Restriction:</strong> Request restrictions on processing in certain cases.</li>
+            <li><strong>Objection:</strong> Object to processing in certain cases.</li>
+          </ul>
+          <p class="mt-6 italic">To exercise these rights, contact us using the details below. We will respond within required timelines.</p>
+        </section>
+
+        <!-- 7 -->
+        <section id="children" aria-labelledby="h-children">
+          <h2 id="h-children" class="text-3xl md:text-4xl font-extrabold mb-6 text-white border-b-4 border-custom-gold/50 pb-3">
+            7. Children’s Privacy
+          </h2>
+          <p>
+            The Service is not intended for individuals under 18. If you believe a child has provided personal information, contact us and we will take appropriate steps to remove it.
+          </p>
+        </section>
+
+        <!-- 8 -->
+        <section id="changes" aria-labelledby="h-changes">
+          <h2 id="h-changes" class="text-3xl md:text-4xl font-extrabold mb-6 text-white border-b-4 border-custom-gold/50 pb-3">
+            8. Changes to This Privacy Policy
+          </h2>
+          <p>
+            We may update this Policy from time to time. We will post updates on this page and adjust the “Last Updated” date. Please review periodically.
+          </p>
+        </section>
+
+        <!-- 9 -->
+        <section id="contact" aria-labelledby="h-contact">
+          <h2 id="h-contact" class="text-3xl md:text-4xl font-extrabold mb-6 text-white border-b-4 border-custom-gold/50 pb-3">
+            9. Contact Us
+          </h2>
+          <p class="mb-3">Questions about this Policy or your rights?</p>
+          <p class="text-lg font-semibold text-custom-gold mb-2">Email</p>
+          <p class="font-mono text-base md:text-lg text-white bg-black/50 p-3 inline-block rounded-lg border border-custom-gold/50">
+            custodybuddyai@gmail.com
+          </p>
+        </section>
+      </article>
+
+      <!-- Back to top -->
+      <div class="mt-12">
+        <a href="#top" class="inline-flex items-center gap-2 text-sm underline underline-offset-4 hover:text-custom-gold">
+          ↑ Back to top
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-section-dark py-6 border-t border-custom-gold/20 text-center text-gray-400">
+    <p class="text-sm">&copy; 2024 CustodyBuddy.com. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Accessible mobile menu JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('mobile-menu-button');
+      const menu = document.getElementById('mobile-menu');
+      const iconMenu = document.getElementById('icon-menu');
+      const iconClose = document.getElementById('icon-close');
+
+      if (btn && menu) {
+        btn.addEventListener('click', () => {
+          const nowHidden = menu.classList.toggle('hidden');
+          const expanded = !nowHidden;
+          btn.setAttribute('aria-expanded', String(expanded));
+          iconMenu.classList.toggle('hidden', expanded);
+          iconClose.classList.toggle('hidden', !expanded);
+
+          if (expanded) {
+            const firstLink = menu.querySelector('a');
+            firstLink && firstLink.focus();
+          }
+        });
+
+        // Close on link click
+        menu.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => {
+            if (!menu.classList.contains('hidden')) {
+              menu.classList.add('hidden');
+              btn.setAttribute('aria-expanded', 'false');
+              iconMenu.classList.remove('hidden');
+              iconClose.classList.add('hidden');
+              btn.focus();
+            }
+          });
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
+            menu.classList.add('hidden');
+            btn.setAttribute('aria-expanded', 'false');
+            iconMenu.classList.remove('hidden');
+            iconClose.classList.add('hidden');
+            btn.focus();
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

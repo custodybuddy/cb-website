@@ -1,0 +1,72 @@
+.wrap { max-width: 1100px; margin: 0 auto; padding: 1rem 1.25rem; }
+.disclosure { font-size: 0.95rem; color: #444; }
+.product-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem; margin: 1rem 0 2rem;
+}
+.product-card {
+  display: grid; grid-template-rows: auto 1fr; border: 1px solid #e5e7eb;
+  border-radius: 14px; overflow: hidden; background: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+}
+.product-card .media { background: #f8fafc; display: flex; align-items: center; justify-content: center; padding: .75rem; }
+.product-card .media img { max-width: 100%; height: auto; }
+.product-card .content { padding: 1rem; }
+.product-title { font-size: 1.05rem; margin: 0 0 .25rem; }
+.product-note { margin: 0 0 .75rem; color: #374151; line-height: 1.5; }
+.cta { display: flex; align-items: center; gap: .5rem; }
+.amazon-link {
+  display: inline-block; padding: .6rem .9rem; border-radius: 10px;
+  background: #111827; color: #fff; text-decoration: none; font-weight: 600;
+  outline: none; border: 2px solid transparent;
+}
+.amazon-link:focus-visible { border-color: #D4AF37; box-shadow: 0 0 0 3px rgba(212,175,55,.25); }
+.paid { font-size: .9rem; color: #555; }
+@media (prefers-color-scheme: dark) {
+  .product-card { background: #0b1220; border-color: #1f2937; }
+  .product-note { color: #d1d5db; }
+  .amazon-link { background: #1f2937; }
+  .paid { color: #9ca3af; }
+}
+/* === CustodyBuddy Amazon button (premium look) === */
+:root{
+  --cb-navy-900:#0A1F33; --cb-navy-800:#102A49; --cb-navy-700:#123159;
+  --cb-ink:#E9F2FF; --cb-muted:#A9BCD5; --cb-gold:#D4AF37;
+}
+
+.btn-amzn{
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.62rem .95rem; border-radius:9999px;
+  color:#fff; text-decoration:none; font-weight:700;
+  background: linear-gradient(180deg, var(--cb-navy-800), var(--cb-navy-700));
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow: 0 6px 14px rgba(2,12,27,.35), inset 0 0 0 1px rgba(255,255,255,.06);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.btn-amzn:hover{ transform: translateY(-1px); box-shadow: 0 10px 18px rgba(2,12,27,.45); border-color: rgba(212,175,55,.45); }
+.btn-amzn:focus-visible{
+  outline:2px solid var(--cb-gold); outline-offset:2px;
+  box-shadow: 0 0 0 3px rgba(212,175,55,.25), 0 6px 14px rgba(2,12,27,.35);
+}
+.btn-amzn .ico{ width:1rem; height:1rem; opacity:.95; }
+
+/* Style for the JS-injected "(paid link)" */
+.paid{ margin-left:.5rem; font-size:.9rem; color:var(--cb-muted); }
+
+/* --- Mobile helpers for Recommended page --- */
+.media img, .book-cover {
+  max-width: 100%;
+  height: auto;
+  max-height: 12rem;        /* keeps book covers from getting too tall on phones */
+  object-fit: contain;
+}
+
+@media (max-width: 640px) {
+  /* On small screens, don't start hidden; reveal immediately */
+  .scroll-reveal { opacity: 1 !important; transform: none !important; }
+}
+
+/* Accessibility: respect reduced motion site-wide */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+}

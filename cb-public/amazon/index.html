@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CustodyBuddy.com - Your Ally in Co-Parenting with a Toxic Ex</title>
+    
+    <!-- Meta Tags for SEO and Social Sharing -->
+    <meta name="description" content="An AI-powered legal toolkit for self-represented parents dealing with toxic co-parenting. Transform stress into strategy, and manipulation into court evidence.">
+    <meta name="keywords" content="toxic ex co-parenting, self-represented parent legal help, custody documentation tools, parental rights Canada, fathers rights Ontario">
+    
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="CustodyBuddy.com - Your Ally in Co-Parenting">
+    <meta property="og:description" content="AI-Powered Legal Toolkit for Self-Represented Parents.">
+    <meta property="og:image" content="https://placehold.co/1200x630/000000/FFD700?text=CUSTODYBUDDY.COM">
+    <meta property="og:url" content="#">
+
+    <!-- Tailwind CSS Script -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Custom Tailwind configuration for improved maintainability and required colors
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'custom-gold': '#FFD700', // Primary Accent
+                        'custom-gold-light': '#E9D09B', 
+                        'custom-dark-blue': '#0d1a2e', 
+                        'custom-navy-dark': '#010A1A', // Darker navy for pattern #2
+                        'custom-card-dark': 'rgba(255, 255, 255, 0.05)', 
+                        'section-dark': '#0a0a0a', // Slightly lighter black for pattern #1
+                        'gray-900': '#111827', // Used for testimonial card background
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    keyframes: {
+                        'fade-in-down': {
+                            '0%': { opacity: '0', transform: 'translateY(-20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        'fade-in-up': {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        'fade-in': {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        // More prominent pulse for the main CTA button
+                        'pulse-subtle': {
+                            '0%, 100%': { boxShadow: '0 0 0 0 rgba(255, 215, 0, 0.4)' },
+                            '50%': { boxShadow: '0 0 0 10px rgba(255, 215, 0, 0)' },
+                        },
+                        // Keyframes for the 'pressed' effect
+                        'press-down': {
+                            '0%, 100%': { transform: 'scale(1)', boxShadow: '0 15px 30px rgba(255, 215, 0, 0.4)' },
+                            '50%': { transform: 'scale(0.98) translateY(2px)', boxShadow: '0 5px 15px rgba(255, 215, 0, 0.2)' }
+                        }
+                    },
+                    animation: {
+                        'fade-in-down': 'fade-in-down 0.6s ease-out',
+                        'fade-in-up': 'fade-in-up 0.6s ease-out',
+                        'fade-in': 'fade-in 0.6s ease-out',
+                        'pulse-subtle': 'pulse-subtle 2.5s infinite cubic-bezier(0.4, 0, 0.6, 1)',
+                    }
+                },
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles for Visual Depth and Interactions -->
+    <style>
+        /* Base Dark Background */
+        body { background-color: #000000; }
+
+        /* Hero Background with subtle radial gradient for focus */
+        .hero-background {
+            position: relative;
+            background-color: #010A1A; /* custom-navy-dark */
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-background::before {
+            /* This layer holds the background image at 15% opacity */
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0; /* Changed from left: 50%; transform: translateX(-50%); */
+            right: 0; /* Ensures it spans full width */
+            /* Removed max-width here to allow full width coverage */
+            bottom: 0;
+            background-image: url('https://custodybuddy.com/assets/img/hero-bg2.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15; /* Reduced to 15% opacity */
+            pointer-events: none;
+        }
+        .hero-background::after {
+            /* This layer holds the radial gradient overlay (full width for seamless blend) */
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center top, rgba(255, 215, 0, 0.05) 0%, rgba(1, 10, 26, 0) 60%);
+            pointer-events: none;
+        }
+
+        /* Utility for deep shadow on dark elements */
+        .shadow-3xl {
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5), 0 8px 16px -4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Decorative separator */
+        .gold-divider {
+            height: 2px;
+            width: 100px;
+            background: linear-gradient(to right, transparent 0%, #FFD700 50%, transparent 100%);
+            margin: 0 auto 2rem auto;
+            border: none;
+        }
+    </style>
+
+    <!-- Inter Font Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-black text-white font-inter antialiased">
+
+    <!-- Navigation Bar -->
+    <nav id="main-nav" class="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur-sm nav-shadow py-4 transition-all duration-300 border-b border-gray-800">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <!-- BRANDING: CUSTODY (Gold), BUDDY (White), .COM (Gold) -->
+            <a href="https://custodybuddy.com" class="text-xl md:text-2xl font-black transition-transform transform hover:scale-105">
+                <span class="text-custom-gold">CUSTODY</span><span class="text-white">BUDDY</span><span class="text-custom-gold">.COM</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="https://custodybuddy.com" class="hover:text-custom-gold transition font-medium text-gray-300">Home</a>
+                <a href="#features" class="hover:text-custom-gold transition font-medium text-gray-300">Features</a>
+                <a href="/about" class="hover:text-custom-gold transition font-medium text-gray-300">About</a>
+                <a href="/prompt-library" class="hover:text-custom-gold transition font-medium text-gray-300">Tips & Tricks</a>
+                <a href="/donate" class="hover:text-custom-gold transition font-medium text-gray-300">Donate</a>
+                <a href="https://blog.custodybuddy.com" class="hover:text-custom-gold transition font-medium text-gray-300" target="_blank" rel="noopener noreferrer">Blog</a>
+                <a href="/contact" class="hover:text-custom-gold transition font-medium text-gray-300">Contact</a>
+                <!-- Social Media Icons in Header Nav -->
+                <div class="flex items-center space-x-2 ml-6">
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/share/p/1FrPYNqcex/" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-custom-gold transition duration-200 transform hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/custodybuddy/" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-custom-gold transition duration-200 transform hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    </a>
+                    <!-- TikTok -->
+                    <a href="https://www.tiktok.com/@custody.buddy" aria-label="Follow us on TikTok" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-custom-gold transition duration-200 transform hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none" class="lucide lucide-tiktok">
+                            <path d="M22 6.5c-1.3.5-2.7.8-4.1.8-3.3 0-6-2.7-6-6v-1h-3v14a8 8 0 0 0 8 8 8 8 0 0 0 8-8v-3a2 2 0 0 0-2-2z"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <a href="/incident-report" class="inline-block bg-custom-gold text-black font-semibold py-2 px-6 rounded-full shadow-lg transition-transform transform hover:scale-105 hover:shadow-custom-gold/40 border-2 border-custom-gold">
+                    Start Now
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-toggle" aria-label="Toggle mobile menu" class="md:hidden text-white hover:text-custom-gold transition focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
+                    <line x1="4" x2="20" y1="12" y2="12"></line>
+                    <line x1="4" x2="20" y1="6" y2="6"></line>
+                    <line x1="4" x2="20" y1="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-black/95 z-40 md:hidden transform -translate-x-full transition-transform duration-300">
+        <div class="p-8 flex flex-col space-y-6 text-2xl text-center pt-24">
+            <a href="/" class="font-bold text-custom-gold" onclick="document.getElementById('mobile-menu').classList.add('-translate-x-full')">Home</a>
+            <a href="#features" class="hover:text-custom-gold transition text-gray-300" onclick="document.getElementById('mobile-menu').classList.add('-translate-x-full')">Features</a>
+            <a href="#social-proof" class="hover:text-custom-gold transition text-gray-300" onclick="document.getElementById('mobile-menu').classList.add('-translate-x-full')">Testimonials</a>
+            <a href="#recommended-reads" class="hover:text-custom-gold transition text-gray-300" onclick="document.getElementById('mobile-menu').classList.add('-translate-x-full')">Reads</a>
+            <a href="/donate" class="hover:text-custom-gold transition text-gray-300" onclick="document.getElementById('mobile-menu').classList.add('-translate-x-full')">Donate</a>
+            <a href="https://blog.custodybuddy.com" class="hover:text-custom-gold transition text-gray-300" target="_blank" rel="noopener noreferrer" onclick="document.getElementById('mobile-menu').classList.add('-translate-x-full')">Blog</a>
+            <a href="/contact" class="hover:text-custom-gold transition text-gray-300" onclick="document.getElementById('mobile-menu').classList.add('-translate-x-full')">Contact</a>
+            <a href="#features" class="inline-block bg-custom-gold text-black font-semibold py-3 px-8 rounded-full shadow-lg mt-8" onclick="document.getElementById('mobile-menu').classList.add('-translate-x-full')">
+                Start Now
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="pt-28 md:pt-32 hero-background min-h-screen">
+        <section class="relative container mx-auto px-4 py-10 md:py-16">
+            <div class="max-w-2xl mx-auto text-center">
+                <h1 class="text-3xl md:text-4xl font-extrabold text-custom-gold text-custom-gold-shadow animate-fade-in-down">
+                    Turn Your Amazon Link into Support
+                </h1>
+                <p class="mt-3 text-gray-300 animate-fade-in-up">
+                    Your purchase via our affiliate link helps keep CustodyBuddy free for parents 💛
+                </p>
+                <hr class="gold-divider opacity-70">
+            </div>
+
+            <!-- Form Card -->
+            <div class="max-w-2xl mx-auto bg-white/10 backdrop-blur border border-white/10 rounded-2xl p-6 md:p-8 shadow-3xl animate-fade-in-up">
+                <form id="affiliateForm" class="space-y-4" novalidate>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="name" class="block text-sm font-semibold text-gray-200 mb-2">Your Name</label>
+                            <input id="name" name="name" type="text" placeholder="Jane Doe" required
+                                   class="w-full px-4 py-3 rounded-xl bg-white/90 text-gray-900 placeholder-gray-500 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-custom-gold focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-semibold text-gray-2 00 mb-2">Your Email</label>
+                            <input id="email" name="email" type="email" placeholder="you@example.com" required
+                                   class="w-full px-4 py-3 rounded-xl bg-white/90 text-gray-900 placeholder-gray-500 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-custom-gold focus:border-transparent">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="product_url" class="block text-sm font-semibold text-gray-200 mb-2">Amazon Product Link</label>
+                        <input id="product_url" name="product_url" type="url" placeholder="https://www.amazon.ca/dp/..." required
+                               class="w-full px-4 py-3 rounded-xl bg-white/90 text-gray-900 placeholder-gray-500 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-custom-gold focus:border-transparent">
+                    </div>
+
+                    <button type="submit" class="w-full bg-custom-gold text-custom-navy-dark font-extrabold py-3.5 px-6 rounded-xl border-2 border-custom-navy-dark shadow-xl hover:scale-[1.01] transition-transform duration-150">
+                        Send My Link
+                    </button>
+                    <p id="message" class="text-center text-sm text-gray-200"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileToggle && mobileMenu) {
+            mobileToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('-translate-x-full');
+            });
+        }
+
+        // Form submit handler
+        document.getElementById('affiliateForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const msg = document.getElementById('message');
+            msg.textContent = 'Submitting...';
+
+            const WEBHOOK_URL = 'https://hook.us1.make.com/83u3742xw4qwn6je2hofhr7dwumycieo'; // your Make webhook
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const product_url = document.getElementById('product_url').value.trim();
+
+            if (!name || !email || !product_url) {
+                msg.textContent = 'Please fill in your name, email, and a valid Amazon link.';
+                msg.className = 'text-center text-sm text-red-400';
+                return;
+            }
+
+            // Auto-generate subject and preheader for your email module
+            const email_subject = `Thank you, ${name || 'friend'} — your purchase is supporting CustodyBuddy 💛`;
+            const email_preheader = 'Your Amazon purchase via our affiliate link helps keep CustodyBuddy free for parents navigating family law.';
+
+            const payload = { name, email, product_url, email_subject, email_preheader };
+
+            try {
+                const res = await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!res.ok) throw new Error('Webhook error');
+                msg.textContent = '✅ Thank you! We’re generating your affiliate link and email now.';
+                msg.className = 'text-center text-sm text-green-400';
+                e.target.reset();
+            } catch (err) {
+                msg.textContent = '❌ Failed to send. Please try again.';
+                msg.className = 'text-center text-sm text-red-400';
+            }
+        });
+    </script>
+    <!-- Footer (Pattern: #1 / section-dark / #0a0a0a) -->
+    <footer class="bg-section-dark py-10 md:py-16 border-t border-custom-gold/10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 border-b border-gray-800 pb-10 mb-8">
+                
+                <!-- Footer Col 1: Logo & Social -->
+                <div class="col-span-2 md:col-span-2">
+                    <a href="https://custodybuddy.com" class="text-2xl font-black mb-4 inline-block">
+                        <span class="text-custom-gold">CUSTODY</span><span class="text-white">BUDDY</span><span class="text-custom-gold">.COM</span>
+                    </a>
+                    <p class="text-gray-400 text-sm mt-2 max-w-xs">AI-Powered Legal Toolkit for Self-Represented Parents in high-conflict custody battles.</p>
+                    <div class="flex space-x-4 mt-6">
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/share/p/1FrPYNqcex/" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-custom-gold transition duration-200 transform hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/custodybuddy/" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-custom-gold transition duration-200 transform hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        </a>
+                        <!-- TikTok -->
+                        <a href="https://www.tiktok.com/@custody.buddy" aria-label="Follow us on TikTok" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-custom-gold transition duration-200 transform hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" class="lucide lucide-tiktok">
+                                <path d="M22 6.5c-1.3.5-2.7.8-4.1.8-3.3 0-6-2.7-6-6v-1h-3v14a8 8 0 0 0 8 8 8 8 0 0 0 8-8v-3a2 2 0 0 0-2-2z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Footer Col 2: Product Links -->
+                <div>
+                    <h4 class="text-custom-gold font-bold mb-4 uppercase text-sm">Product</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="https://custodybuddy.com/incident-report/" class="hover:text-custom-gold transition">Report an Incident</a></li>
+                        <li><a href="https://chatgpt.com/g/g-67eb2e37f6f88191aff3cef576ff0e3b-family-law-case-analysis-tool-custodybuddy-com" target="_blank" rel="noopener noreferrer" class="hover:text-custom-gold transition">Case Analysis Tool</a></li>
+                        <li><a href="https://chatgpt.com/g/g-681d37904f8481919508226a5b2f4bb8-email-law-buddy-custodybuddy-com" target="_blank" rel="noopener noreferrer" class="hover:text-custom-gold transition">Email Law Buddy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Footer Col 3: Resources -->
+                <div>
+                    <h4 class="text-custom-gold font-bold mb-4 uppercase text-sm">Resources</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="/prompt-library" class="hover:text-custom-gold transition">Tips & Tricks</a></li>
+                        <li><a href="#recommended-reads" class="hover:text-custom-gold transition">Recommended Reads</a></li>
+                        <li><a href="https://blog.custodybuddy.com" target="_blank" rel="noopener noreferrer" class="hover:text-custom-gold transition">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Footer Col 4: Company -->
+                <div>
+                    <h4 class="text-custom-gold font-bold mb-4 uppercase text-sm">Company</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="/about" class="hover:text-custom-gold transition">About Us</a></li>
+                        <li><a href="/contact" class="hover:text-custom-gold transition">Contact</a></li>
+                        <li><a href="/privacy" class="hover:text-custom-gold transition">Privacy Policy</a></li>
+                        <li><a href="/terms" class="hover:text-custom-gold transition">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright & Disclaimer Row -->
+            <div class="text-center md:flex md:justify-between md:items-center">
+                <p class="text-sm text-gray-600">&copy; 2024 CustodyBuddy.com. All rights reserved.</p>
+                <p class="text-xs text-gray-500 mt-4 md:mt-0 max-w-xl md:text-right">
+                    <span class="text-custom-gold font-bold">Disclaimer:</span> CustodyBuddy is an AI tool and not a substitute for legal advice from a qualified lawyer. Always consult with a legal professional.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>

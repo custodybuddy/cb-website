@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CustodyBuddy.com - Your Ally in Co-Parenting with a Toxic Ex</title>
+    
+    <!-- Meta Tags for SEO and Social Sharing -->
+    <meta name="description" content="An AI-powered legal toolkit for self-represented parents dealing with toxic co-parenting. Transform stress into strategy, and manipulation into court evidence.">
+    <meta name="keywords" content="toxic ex co-parenting, self-represented parent legal help, custody documentation tools, parental rights Canada, fathers rights Ontario">
+    
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="CustodyBuddy.com - Your Ally in Co-Parenting">
+    <meta property="og:description" content="AI-Powered Legal Toolkit for Self-Represented Parents.">
+    <meta property="og:image" content="https://placehold.co/1200x630/000000/FFD700?text=CUSTODYBUDDY.COM">
+    <meta property="og:url" content="#">
+
+    
+    <!-- Tailwind CSS Script -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Custom Tailwind configuration for improved maintainability and required colors
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'custom-gold': '#FFD700', // Primary Accent
+                        'custom-gold-light': '#E9D09B', 
+                        'custom-dark-blue': '#0d1a2e', 
+                        'custom-navy-dark': '#010A1A', // Darker navy for pattern #2
+                        'custom-card-dark': 'rgba(255, 255, 255, 0.05)', 
+                        'section-dark': '#0a0a0a', // Slightly lighter black for pattern #1
+                        'gray-900': '#111827', // Used for testimonial card background
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    keyframes: {
+                        'fade-in-down': {
+                            '0%': { opacity: '0', transform: 'translateY(-20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        'fade-in-up': {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        'fade-in': {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        // More prominent pulse for the main CTA button
+                        'pulse-subtle': {
+                            '0%, 100%': { boxShadow: '0 0 0 0 rgba(255, 215, 0, 0.4)' },
+                            '50%': { boxShadow: '0 0 0 10px rgba(255, 215, 0, 0)' },
+                        },
+                        // Keyframes for the 'pressed' effect
+                        'press-down': {
+                            '0%, 100%': { transform: 'scale(1)', boxShadow: '0 15px 30px rgba(255, 215, 0, 0.4)' },
+                            '50%': { transform: 'scale(0.98) translateY(2px)', boxShadow: '0 5px 15px rgba(255, 215, 0, 0.2)' }
+                        }
+                    },
+                    animation: {
+                        'fade-in-down': 'fade-in-down 0.6s ease-out',
+                        'fade-in-up': 'fade-in-up 0.6s ease-out',
+                        'fade-in': 'fade-in 0.6s ease-out',
+                        'pulse-subtle': 'pulse-subtle 2.5s infinite cubic-bezier(0.4, 0, 0.6, 1)',
+                    }
+                },
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles for Visual Depth and Interactions -->
+    <style>
+        /* Base Dark Background */
+        body {
+            background-color: #000000;
+        }
+
+        /* Hero Background with subtle radial gradient for focus */
+        .hero-background {
+            position: relative;
+            background-color: #010A1A; /* custom-navy-dark */
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-background::before {
+            /* This layer holds the background image at 15% opacity */
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0; /* Changed from left: 50%; transform: translateX(-50%); */
+            right: 0; /* Ensures it spans full width */
+            /* Removed max-width here to allow full width coverage */
+            bottom: 0;
+            background-image: url('https://custodybuddy.com/assets/img/hero-bg2.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15; /* Reduced to 15% opacity */
+            pointer-events: none;
+        }
+        .hero-background::after {
+            /* This layer holds the radial gradient overlay (full width for seamless blend) */
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center top, rgba(255, 215, 0, 0.05) 0%, rgba(1, 10, 26, 0) 60%);
+            pointer-events: none;
+        }
+
+        /* Hero CTA Interaction */
+        .cta-primary {
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5); /* Stronger initial shadow */
+            transition: all 0.2s ease-in-out;
+        }
+        .cta-primary:hover {
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.7);
+            transform: scale(1.02);
+        }
+        .cta-primary:active {
+            /* Mimics a physical button press */
+            transform: scale(0.98) translateY(2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+        }
+
+        /* Feature Card Hover Glow Effect (IMPROVED) */
+        .feature-card-glow {
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-color: rgba(255, 215, 0, 0.3);
+            background-color: #0d1a2e; /* Slightly different dark blue for internal card background */
+        }
+        .feature-card-glow:hover {
+            border-color: #FFD700;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3), 0 0 40px rgba(255, 215, 0, 0.1);
+            transform: translateY(-8px); /* Lift the card */
+            background-color: #111827; /* Darker on hover for depth */
+        }
+        
+        /* Recommended Reads Card Polish */
+        .read-card {
+            transition: all 0.3s ease;
+            position: relative;
+            border: 2px solid transparent;
+        }
+        .read-card:hover {
+            border-color: #FFD700; /* custom-gold */
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.25);
+        }
+
+        /* Nav Bar Shadow Enhancement */
+        .nav-shadow {
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.1);
+        }
+
+        /* Utility for deep shadow on dark elements */
+        .shadow-3xl {
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5), 0 8px 16px -4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Decorative separator */
+        .gold-divider {
+            height: 2px;
+            width: 100px;
+            background: linear-gradient(to right, transparent 0%, #FFD700 50%, transparent 100%);
+            margin: 0 auto 3rem auto;
+            border: none;
+        }
+
+        /* Subtle text shadow for the gold text in the hero */
+        .text-custom-gold-shadow {
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Testimonial accent line */
+        .testimonial-card-accent {
+            border-left: 4px solid #FFD700;
+        }
+
+    </style>
+
+    
+    <!-- Inter Font Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-black text-white font-inter antialiased">
+
+    <!-- Navigation Bar -->
+    <nav id="main-nav" class="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur-sm nav-shadow py-4 transition-all duration-300 border-b border-gray-800">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <!-- BRANDING: CUSTODY (Gold), BUDDY (White), .COM (Gold) -->
+            <a href="https://custodybuddy.com" class="text-xl md:text-2xl font-black transition-transform transform hover:scale-105">
+                <span class="text-custom-gold">CUSTODY</span><span class="text-white">BUDDY</span><span class="text-custom-gold">.COM</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="https://custodybuddy.com" class="hover:text-custom-gold transition font-medium text-gray-300">Home</a>
+                <a href="#features" class="hover:text-custom-gold transition font-medium text-gray-300">Features</a>
+                <a href="/about" class="hover:text-custom-gold transition font-medium text-gray-300">About</a>
+                <a href="/prompt-library" class="hover:text-custom-gold transition font-medium text-gray-300">Tips & Tricks</a>
+                <a href="/donate" class="hover:text-custom-gold transition font-medium text-gray-300">Donate</a>
+                <a href="https://blog.custodybuddy.com" class="hover:text-custom-gold transition font-medium text-gray-300" target="_blank" rel="noopener noreferrer">Blog</a>
+                <a href="/contact" class="hover:text-custom-gold transition font-medium text-gray-300">Contact</a>
+                                    <!-- UPDATED & NEW: Social Media Icons in Header Nav -->
+                <div class="flex items-center space-x-2 ml-6">
+                    <!-- Facebook (UPDATED LINK) -->
+                    <a href="https://www.facebook.com/share/p/1FrPYNqcex/" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-custom-gold transition duration-200 transform hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                    <!-- Instagram (UPDATED LINK) -->
+                    <a href="https://www.instagram.com/custodybuddy/" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-custom-gold transition duration-200 transform hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    </a>
+                    <!-- TikTok (NEW LINK) -->
+                    <a href="https://www.tiktok.com/@custody.buddy" aria-label="Follow us on TikTok" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-custom-gold transition duration-200 transform hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none" class="lucide lucide-tiktok">
+                            <path d="M22 6.5c-1.3.5-2.7.8-4.1.8-3.3 0-6-2.7-6-6v-1h-3v14a8 8 0 0 0 8 8 8 8 0 0 0 8-8v-3a2 2 0 0 0-2-2z"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <a href="/incident-report/" class="inline-block bg-custom-gold text-black font-semibold py-2 px-6 rounded-full shadow-lg transition-transform transform hover:scale-105 hover:shadow-custom-gold/40 border-2 border-custom-gold">
+                    Start Now
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-toggle" aria-label="Toggle mobile menu" class="md:hidden text-white hover:text-custom-gold transition focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
+                    <line x1="4" x2="20" y1="12" y2="12"></line>
+                    <line x1="4" x2="20" y1="6" y2="6"></line>
+                    <line x1="4" x2="20" y1="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-black/95 z-40 md:hidden transform -translate-x-full transition-transform duration-300">
+        <div class="p-8 flex flex-col space-y-6 text-2xl text-center pt-24">
+            <a href="/" class="font-bold text-custom-gold" onclick="document.getElementById('mobile-menu').classList.add('-translate-x-full')">Home</a>
+            <a href="#features" class="hover:text-custom-gold transition text-gray-300" onclick="document.getElementById('mobile-menu').classList.add('-translate-x-full')">Features</a>
+            <a href="#social-proof" class="hover:text-custom-gold transition text-gray-300" onclick="document.getElementById('mobile-menu').classList.add('-translate-x-full')">Testimonials</a>
+            <a href="#recommended-reads" class="hover:text-custom-gold transition text-gray-300" onclick="document.getElementById('mobile-menu').classList.add('-translate-x-full')">Reads</a>
+            <a href="/donate" class="hover:text-custom-gold transition text-gray-300" onclick="document.getElementById('mobile-menu').classList.add('-translate-x-full')">Donate</a>
+            <a href="https://blog.custodybuddy.com" class="hover:text-custom-gold transition text-gray-300" target="_blank" rel="noopener noreferrer" onclick="document.getElementById('mobile-menu').classList.add('-translate-x-full')">Blog</a>
+            <a href="/contact" class="hover:text-custom-gold transition text-gray-300" onclick="document.getElementById('mobile-menu').classList.add('-translate-x-full')">Contact</a>
+            <a href="#features" class="inline-block bg-custom-gold text-black font-semibold py-3 px-8 rounded-full shadow-lg mt-8" onclick="document.getElementById('mobile-menu').classList.add('-translate-x-full')">
+                Start Now
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section (Pattern: #2 / custom-navy-dark / #010A1A) -->
+    <section class="hero-background flex items-center justify-center pt-20 pb-4 md:pb-6 text-center relative overflow-hidden">
+        <div class="container mx-auto px-4 z-10 py-6 md:py-8 border-t border-b border-custom-gold/10">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 animate-fade-in-down">
+                <span class="text-custom-gold text-custom-gold-shadow">Your Ally</span> in Co-Parenting with a <span class="text-custom-gold text-custom-gold-shadow">Toxic Ex</span>.
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl font-light max-w-3xl mx-auto mb-8 text-gray-400 animate-fade-in delay-200">
+                AI-Powered Legal Toolkit for Self-Represented Parents. <br class="hidden sm:inline">
+                Transform stress into strategy, turn manipulation into court evidence.
+            </p>
+            <div class="space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in-up delay-400">
+                <!-- Primary CTA with enhanced interaction and pulse animation -->
+                <a href="https://custodybuddy.com/incident-report/" class="inline-block cta-primary bg-custom-gold text-black font-extrabold py-4 px-12 rounded-full shadow-2xl transition-transform transform hover:scale-[1.03] active:scale-95 animate-pulse-subtle">
+                    Document Their Lies
+                </a>
+                <a href="#social-proof" class="inline-block bg-transparent text-custom-gold border-2 border-custom-gold font-bold py-4 px-12 rounded-full shadow-xl transition-colors hover:bg-custom-gold hover:text-black active:scale-95 hover:shadow-custom-gold/30">
+                    See Success Stories
+                </a>
+            </div>
+            
+            <!-- Trust Badges -->
+            <div class="mt-12 flex justify-center space-x-4 sm:space-x-8 text-gray-500 animate-fade-in-up delay-500 text-sm sm:text-base">
+                <span class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-check text-custom-gold"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
+                    <span class="font-medium text-gray-300">Court-Ready Format</span>
+                </span>
+                <span class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check text-custom-gold"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                    <span class="font-medium text-gray-300">AI-Powered Insights</span>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+            var menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('-translate-x-full')) {
+                menu.classList.remove('-translate-x-full');
+            } else {
+                menu.classList.add('-translate-x-full');
+            }
+        });
+    </script>
+
+    <!-- Section 2: Features (Pattern: #1 / section-dark / #0a0a0a) -->
+    <section id="features" class="bg-section-dark py-12 md:py-16">
+        <div class="container mx-auto px-4 text-center">
+            
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-16 animate-fade-in-up">
+                <span class="text-custom-gold text-custom-gold-shadow">AI Tools</span> to<span class="text-custom-gold text-custom-gold-shadow"> Level</span> the<span class="text-custom-gold text-custom-gold-shadow"> <i>Playing Field</i></span>.
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Feature Card 1: Report An Incident (Enhanced Design) -->
+                <div class="p-6 md:p-10 rounded-3xl feature-card-glow border-2 border-custom-gold/30 flex flex-col items-center animate-fade-in-up shadow-3xl">
+                    <div class="p-5 rounded-full bg-custom-gold text-black mb-4 shadow-xl w-20 h-20 flex items-center justify-center">
+                        <!-- Feature Icon 1 - Lazy Loading Implemented -->
+                        <img src="https://custodybuddy.com/assets/img/ReportIncidentIcon.png" alt="Report an Incident Icon" class="w-12 h-12 object-contain" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/64x64/010A1A/FFD700?text=EVIDENCE';">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white">
+                        Report An Incident: <span class="text-custom-gold">Catch Them</span> Red-Handed.
+                    </h3>
+                    <p class="text-gray-400 mb-6 text-center text-base">Transform toxic behavior into court-ready evidence with guided documentation, timestamps, and professional exports.</p>
+                    <a href="https://custodybuddy.com/incident-report/" class="inline-block bg-custom-gold text-black font-semibold py-2.5 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 active:scale-95 hover:shadow-custom-gold/30 mt-auto">
+                        DOCUMENT THEIR LIES
+                    </a>
+                </div>
+                
+                <!-- Feature Card 2: Family Law Case Analysis Tool (Enhanced Design) -->
+                <div class="p-6 md:p-10 rounded-3xl feature-card-glow border-2 border-custom-gold/30 flex flex-col items-center animate-fade-in-up delay-100 shadow-3xl">
+                    <div class="p-5 rounded-full bg-custom-gold text-black mb-4 shadow-xl w-20 h-20 flex items-center justify-center">
+                        <!-- Feature Icon 2 - Lazy Loading Implemented -->
+                        <img src="https://custodybuddy.com/assets/img/CaseAnalysisIcon.png" alt="Family Law Case Analysis Icon" class="w-12 h-12 object-contain" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/64x64/010A1A/FFD700?text=ANALYSIS';">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white">
+                        Family Law Case Analysis Tool: Level the <span class="text-custom-gold">Playing Field</span>.
+                    </h3>
+                    <p class="text-gray-400 mb-6 text-center text-base">Decode legal documents with AI analysis, get plain English explanations, and receive next-step recommendations.</p>
+                    <a href="https://chatgpt.com/g/g-67eb2e37f6f88191aff3cef576ff0e3b-family-law-case-analysis-tool-custodybuddy-com" class="inline-block bg-custom-gold text-black font-semibold py-2.5 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 active:scale-95 hover:shadow-custom-gold/30 mt-auto" target="_blank" rel="noopener noreferrer">
+                        EXPOSE THE TRUTH
+                    </a>
+                </div>
+                
+                <!-- Feature Card 3: Email Law Buddy (Enhanced Design) -->
+                <div class="p-6 md:p-10 rounded-3xl feature-card-glow border-2 border-custom-gold/30 flex flex-col items-center animate-fade-in-up delay-200 shadow-3xl">
+                    <div class="p-5 rounded-full bg-custom-gold text-black mb-4 shadow-xl w-20 h-20 flex items-center justify-center">
+                        <!-- Feature Icon 3 - Lazy Loading Implemented -->
+                        <img src="https://custodybuddy.com/assets/img/EmailLawIcon.png" alt="Email Law Buddy Icon" class="w-12 h-12 object-contain" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/64x64/010A1A/FFD700?text=EMAIL';">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white">
+                        Email Law Buddy: <span class="text-custom-gold">Shut Down</span> the Games.
+                    </h3>
+                    <p class="text-gray-400 mb-6 text-center text-base">Stop emotional manipulation with professional, AI-drafted responses that maintain composure and build your legal case.</p>
+                    <a href="https://chatgpt.com/g/g-681d37904f8481919508226a5b2f4bb8-email-law-buddy-custodybuddy-com" class="inline-block bg-custom-gold text-black font-semibold py-2.5 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 active:scale-95 hover:shadow-custom-gold/30 mt-auto" target="_blank" rel="noopener noreferrer">
+                        STOP THE GAMES
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Social Proof (Pattern: #2 / custom-navy-dark / #010A1A) -->
+    <section id="social-proof" class="bg-custom-navy-dark py-16 md:py-24">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 animate-fade-in">A <span class="text-custom-gold text-custom-gold-shadow">Partner</span> Who <span class="text-custom-gold text-custom-gold-shadow">Understands.</span></h2>
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-12 animate-fade-in delay-100">
+                Don't just take our word for it. See how CustodyBuddy has helped parents like you.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Testimonial 1 (Enhanced Design) -->
+                <div class="bg-gray-900 p-8 rounded-2xl shadow-3xl text-left animate-fade-in-up delay-200 relative overflow-hidden testimonial-card-accent">
+                    <blockquote class="text-xl italic mb-4 text-gray-200 relative z-10">"CustodyBuddy gave me the confidence to stand my ground. I finally have court-ready evidence to expose the lies my ex has been telling."</blockquote>
+                    <p class="font-bold text-custom-gold relative z-10">- Sarah M., Toronto</p>
+                    <span class="absolute top-0 right-0 text-9xl opacity-10 text-custom-gold -translate-y-4 translate-x-4 font-serif">“</span>
+                </div>
+                
+                <!-- Testimonial 2 (Enhanced Design) -->
+                <div class="bg-gray-900 p-8 rounded-2xl shadow-3xl text-left animate-fade-in-up delay-300 relative overflow-hidden testimonial-card-accent">
+                    <blockquote class="text-xl italic mb-4 text-gray-200 relative z-10">"As a self-represented father, I felt completely outmatched. The 'Fathers' Rights Ontario' tool was a game-changer. I'm no longer fighting blind."</blockquote>
+                    <p class="font-bold text-custom-gold relative z-10">- David P., Ottawa</p>
+                    <span class="absolute top-0 right-0 text-9xl opacity-10 text-custom-gold -translate-y-4 translate-x-4 font-serif">“</span>
+                </div>
+            </div>
+            <div class="mt-12 animate-fade-in-up delay-400 p-6 bg-black/50 inline-block rounded-xl border border-custom-gold/20">
+                <span class="text-5xl font-extrabold text-custom-gold block">89%</span>
+                <p class="text-gray-400 text-lg mt-1">of users report improved case outcomes after using CustodyBuddy.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Section 4: Recommended Reads (Pattern: #1 / section-dark / #0a0a0a) -->
+    <section id="recommended-reads" class="bg-section-dark py-16 md:py-24">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 animate-fade-in">
+                <span class="text-custom-gold text-custom-gold-shadow">Recommended</span> Reads & <span class="text-custom-gold text-custom-gold-shadow">Resources</span>
+            </h2>
+            <hr class="gold-divider mb-12 animate-fade-in delay-100">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+                
+                <!-- Book 1 -->
+                <div class="bg-custom-navy-dark p-5 rounded-2xl shadow-xl flex flex-col items-center h-full animate-fade-in-up read-card">
+                    <div class="overflow-hidden rounded-lg mb-4 shadow-2xl shadow-black/50">
+                        <img src="https://m.media-amazon.com/images/I/81WNrK+icJL._SX342_.jpg" alt="Book cover for Co-parenting with a Toxic Ex" class="book-cover" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/200x300/010A1A/FFD700?text=Co-parenting+with+a+Toxic+Ex';">
+                    </div>
+                    <div class="flex flex-col flex-grow w-full text-center">
+                        <p class="text-lg font-bold text-white leading-snug mb-1">
+                            Co-parenting with a Toxic Ex
+                        </p>
+                        <span class="text-sm font-medium text-custom-gold mb-4">by Amy J.L. Baker and Paul R. Fine</span>
+                        <div class="mt-auto pt-3 flex flex-col items-center justify-end">
+                            <a class="amazon-link inline-flex items-center gap-2 bg-custom-gold text-black font-bold py-2.5 px-6 rounded-full shadow-lg transition-transform hover:scale-[1.05] hover:bg-custom-gold-light text-sm"
+                                href="https://www.amazon.ca/dp/B0719CH1D3?tag=custodybudd0c-20&language=en_CA"
+                                target="_blank" rel="sponsored noopener"
+                                aria-label="View Co-parenting with a Toxic Ex on Amazon (paid link)">
+                                <svg aria-hidden="true" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3ZM5 5h6v2H7v10h10v-4h2v6H5V5Z"/></svg>
+                                View on Amazon
+                            </a>
+                            <span class="paid text-xs text-gray-500 mt-2">Affiliate Link</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 2 -->
+                <div class="bg-custom-navy-dark p-5 rounded-2xl shadow-xl flex flex-col items-center h-full animate-fade-in-up delay-100 read-card">
+                    <div class="overflow-hidden rounded-lg mb-4 shadow-2xl shadow-black/50">
+                        <img src="https://m.media-amazon.com/images/I/71C30NlvpeL._SY466_.jpg" alt="Book cover for BIFF: Quick Responses to High-Conflict People" class="book-cover" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/200x300/010A1A/FFD700?text=BIFF';">
+                    </div>
+                    <div class="flex flex-col flex-grow w-full text-center">
+                        <p class="text-lg font-bold text-white leading-snug mb-1">
+                            BIFF: Quick Responses to High-Conflict People
+                        </p>
+                        <span class="text-sm font-medium text-custom-gold mb-4">by Bill Eddy</span>
+                        <div class="mt-auto pt-3 flex flex-col items-center justify-end">
+                            <a class="amazon-link inline-flex items-center gap-2 bg-custom-gold text-black font-bold py-2.5 px-6 rounded-full shadow-lg transition-transform hover:scale-[1.05] hover:bg-custom-gold-light text-sm"
+                                href="https://www.amazon.ca/dp/1936268728?tag=custodybudd0c-20&language=en_CA"
+                                target="_blank" rel="sponsored noopener"
+                                aria-label="View BIFF: Quick Responses to High-Conflict People on Amazon (paid link)">
+                                <svg aria-hidden="true" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3ZM5 5h6v2H7v10h10v-4h2v6H5V5Z"/></svg>
+                                View on Amazon
+                            </a>
+                            <span class="paid text-xs text-gray-500 mt-2">Affiliate Link</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 3 -->
+                <div class="bg-custom-navy-dark p-5 rounded-2xl shadow-xl flex flex-col items-center h-full animate-fade-in-up delay-200 read-card">
+                    <div class="overflow-hidden rounded-lg mb-4 shadow-2xl shadow-black/50">
+                        <img src="https://m.media-amazon.com/images/I/5165NcbMc4L._SY445_SX342_QL70_ML2_.jpg" alt="Book cover for Divorce Poison" class="book-cover" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/200x300/010A1A/FFD700?text=Divorce+Poison';">
+                    </div>
+                    <div class="flex flex-col flex-grow w-full text-center">
+                        <p class="text-lg font-bold text-white leading-snug mb-1">
+                            Divorce Poison
+                        </p>
+                        <span class="text-sm font-medium text-custom-gold mb-4">by Dr. Richard A. Warshak</span>
+                        <div class="mt-auto pt-3 flex flex-col items-center justify-end">
+                            <a class="amazon-link inline-flex items-center gap-2 bg-custom-gold text-black font-bold py-2.5 px-6 rounded-full shadow-lg transition-transform hover:scale-[1.05] hover:bg-custom-gold-light text-sm"
+                                href="https://www.amazon.ca/dp/0061244585?tag=custodybudd0c-20&language=en_CA"
+                                target="_blank" rel="sponsored noopener"
+                                aria-label="View Divorce Poison on Amazon (paid link)">
+                                <svg aria-hidden="true" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3ZM5 5h6v2H7v10h10v-4h2v6H5V5Z"/></svg>
+                                View on Amazon
+                            </a>
+                            <span class="paid text-xs text-gray-500 mt-2">Affiliate Link</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 4 (NEW) -->
+                <div class="bg-custom-navy-dark p-5 rounded-2xl shadow-xl flex flex-col items-center h-full animate-fade-in-up delay-300 read-card">
+                    <div class="overflow-hidden rounded-lg mb-4 shadow-2xl shadow-black/50">
+                        <img src="https://m.media-amazon.com/images/I/719hSjA2H0L._SY466_.jpg" alt="Book cover for Splitting" class="book-cover" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/200x300/010A1A/FFD700?text=SPLITTING';">
+                    </div>
+                    <div class="flex flex-col flex-grow w-full text-center">
+                        <p class="text-lg font-bold text-white leading-snug mb-1">
+                            Splitting: Protecting Yourself While Divorcing Someone...
+                        </p>
+                        <span class="text-sm font-medium text-custom-gold mb-4">by Bill Eddy and Randi Kreger</span>
+                        <div class="mt-auto pt-3 flex flex-col items-center justify-end">
+                            <a class="amazon-link inline-flex items-center gap-2 bg-custom-gold text-black font-bold py-2.5 px-6 rounded-full shadow-lg transition-transform hover:scale-[1.05] hover:bg-custom-gold-light text-sm"
+                                href="https://amzn.to/4oj16FS"
+                                target="_blank" rel="sponsored noopener"
+                                aria-label="View Splitting on Amazon (paid link)">
+                                <svg aria-hidden="true" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3ZM5 5h6v2H7v10h10v-4h2v6H5V5Z"/></svg>
+                                View on Amazon
+                            </a>
+                            <span class="paid text-xs text-gray-500 mt-2">Affiliate Link</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Final CTA (Pattern: #2 / custom-navy-dark / #010A1A) -->
+    <section class="bg-custom-navy-dark py-16 md:py-24 border-t border-custom-gold/10">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-custom-gold text-custom-gold-shadow animate-fade-in">
+                Ready to Stop Fighting and Start Winning?
+            </h2>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-10 animate-fade-in delay-100">
+                You don't need a six-figure lawyer to defeat parental alienation and manipulation. You just need the right evidence.
+            </p>
+            <a href="https://custodybuddy.com/incident-report/" class="inline-block cta-primary bg-custom-gold text-black font-extrabold py-4 px-12 rounded-full shadow-2xl transition-transform transform hover:scale-[1.03] active:scale-95 animate-pulse-subtle animate-fade-in-up delay-200">
+                Get Your First Court-Ready Report
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer (Pattern: #1 / section-dark / #0a0a0a) -->
+    <footer class="bg-section-dark py-10 md:py-16 border-t border-custom-gold/10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 border-b border-gray-800 pb-10 mb-8">
+                
+                <!-- Footer Col 1: Logo & Social -->
+                <div class="col-span-2 md:col-span-2">
+                    <a href="https://custodybuddy.com" class="text-2xl font-black mb-4 inline-block">
+                        <span class="text-custom-gold">CUSTODY</span><span class="text-white">BUDDY</span><span class="text-custom-gold">.COM</span>
+                    </a>
+                    <p class="text-gray-400 text-sm mt-2 max-w-xs">AI-Powered Legal Toolkit for Self-Represented Parents in high-conflict custody battles.</p>
+                    <div class="flex space-x-4 mt-6">
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/share/p/1FrPYNqcex/" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-custom-gold transition duration-200 transform hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/custodybuddy/" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-custom-gold transition duration-200 transform hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        </a>
+                        <!-- TikTok -->
+                        <a href="https://www.tiktok.com/@custody.buddy" aria-label="Follow us on TikTok" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-custom-gold transition duration-200 transform hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" class="lucide lucide-tiktok">
+                                <path d="M22 6.5c-1.3.5-2.7.8-4.1.8-3.3 0-6-2.7-6-6v-1h-3v14a8 8 0 0 0 8 8 8 8 0 0 0 8-8v-3a2 2 0 0 0-2-2z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Footer Col 2: Product Links -->
+                <div>
+                    <h4 class="text-custom-gold font-bold mb-4 uppercase text-sm">Product</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="https://custodybuddy.com/incident-report/" class="hover:text-custom-gold transition">Report an Incident</a></li>
+                        <li><a href="https://chatgpt.com/g/g-67eb2e37f6f88191aff3cef576ff0e3b-family-law-case-analysis-tool-custodybuddy-com" target="_blank" rel="noopener noreferrer" class="hover:text-custom-gold transition">Case Analysis Tool</a></li>
+                        <li><a href="https://chatgpt.com/g/g-681d37904f8481919508226a5b2f4bb8-email-law-buddy-custodybuddy-com" target="_blank" rel="noopener noreferrer" class="hover:text-custom-gold transition">Email Law Buddy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Footer Col 3: Resources -->
+                <div>
+                    <h4 class="text-custom-gold font-bold mb-4 uppercase text-sm">Resources</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="/prompt-library" class="hover:text-custom-gold transition">Tips & Tricks</a></li>
+                        <li><a href="#recommended-reads" class="hover:text-custom-gold transition">Recommended Reads</a></li>
+                        <li><a href="https://blog.custodybuddy.com" target="_blank" rel="noopener noreferrer" class="hover:text-custom-gold transition">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Footer Col 4: Company -->
+                <div>
+                    <h4 class="text-custom-gold font-bold mb-4 uppercase text-sm">Company</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="/about" class="hover:text-custom-gold transition">About Us</a></li>
+                        <li><a href="/contact" class="hover:text-custom-gold transition">Contact</a></li>
+                        <li><a href="/privacy" class="hover:text-custom-gold transition">Privacy Policy</a></li>
+                        <li><a href="/terms" class="hover:text-custom-gold transition">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright & Disclaimer Row -->
+            <div class="text-center md:flex md:justify-between md:items-center">
+                <p class="text-sm text-gray-600">&copy; 2024 CustodyBuddy.com. All rights reserved.</p>
+                <p class="text-xs text-gray-500 mt-4 md:mt-0 max-w-xl md:text-right">
+                    <span class="text-custom-gold font-bold">Disclaimer:</span> CustodyBuddy is an AI tool and not a substitute for legal advice from a qualified lawyer. Always consult with a legal professional.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>

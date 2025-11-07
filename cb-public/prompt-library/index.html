@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Library - High-Conflict Custody</title>
+    <meta name="description" content="A curated library of AI prompts to assist self-represented Canadian parents in organizing, drafting, and preparing their high-conflict family law cases.">
+    
+    <!-- Tailwind CSS Script --><script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Custom Tailwind configuration for consistency
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'custom-gold': '#FFD700', // Primary Accent
+                        'custom-gold-light': '#E9D09B', 
+                        'custom-dark-blue': '#0d1a2e', 
+                        'custom-navy-dark': '#010A1A', // Darker navy
+                        'section-dark': '#0a0a0a', // Slightly lighter black
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    keyframes: {
+                        // Keyframes for simple button press feedback
+                        'press-down': {
+                            '0%, 100%': { transform: 'scale(1)', boxShadow: '0 5px 15px rgba(255, 215, 0, 0.3)' },
+                            '50%': { transform: 'scale(0.98) translateY(1px)', boxShadow: '0 2px 5px rgba(255, 215, 0, 0.1)' }
+                        },
+                        'fade-in-down': { '0%': { opacity: '0', transform: 'translateY(-10px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        'fade-in': { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                    },
+                    animation: {
+                        'press-down': 'press-down 0.2s ease-out',
+                        'fade-in-down': 'fade-in-down 0.6s ease-out',
+                        'fade-in': 'fade-in 0.6s ease-out',
+                    }
+                },
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles for Visual Depth and Interactions -->
+    <style>
+        body {
+            background-color: #000000;
+        }
+        .text-custom-gold-shadow {
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+        }
+        .nav-shadow {
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.1);
+        }
+        .copy-button {
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+        .copy-button:hover {
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.5);
+            transform: scale(1.02);
+        }
+        .copy-button:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 5px rgba(255, 215, 0, 0.1);
+        }
+        /* Custom styles for the article layout (mobile first) */
+        .content-area {
+            display: grid;
+            grid-template-areas:
+                "header"
+                "content"
+                "toc";
+            gap: 2rem;
+        }
+        /* Desktop layout */
+        @media (min-width: 1024px) {
+            .content-area {
+                grid-template-columns: 3fr 1fr;
+                grid-template-areas:
+                    "header toc"
+                    "content toc";
+            }
+            .toc {
+                position: sticky;
+                top: 8rem; /* Offset from fixed navbar */
+                height: calc(100vh - 10rem);
+                overflow-y: auto;
+            }
+            .page-header {
+                grid-area: header;
+            }
+        }
+        .content-area > div:nth-child(2) { grid-area: content; }
+        .toc { grid-area: toc; }
+
+        /* General content styling */
+        h1, h2, h3 { color: #FFD700; font-weight: 700; }
+        .page-header h1 { margin-bottom: 0.5rem; }
+        .content-area h2 { 
+            font-size: 1.875rem; /* 3xl */
+            border-bottom: 2px solid #27272a; /* Zink 800 */
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: #E9D09B;
+        }
+    </style>
+
+    <!-- Inter Font Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-black text-white font-inter antialiased">
+
+    <!-- Navigation Bar -->
+    <nav id="main-nav" class="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur-sm nav-shadow py-4 transition-all duration-300 border-b border-gray-800">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <!-- BRANDING: CUSTODY (Gold), BUDDY (White), .COM (Gold) -->
+            <a href="https://custodybuddy.com" class="text-xl md:text-2xl font-black transition-transform transform hover:scale-105">
+                <span class="text-custom-gold">CUSTODY</span><span class="text-white">BUDDY</span><span class="text-custom-gold">.COM</span>
+            </a>
+            
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="https://custodybuddy.com" class="hover:text-custom-gold transition font-medium text-gray-300">Home</a>
+                <a href="#features" class="hover:text-custom-gold transition font-medium text-gray-300">Features</a>
+                <a href="/about" class="hover:text-custom-gold transition font-medium text-gray-300">About</a>
+                <a href="#recommended-reads" class="hover:text-custom-gold transition font-medium text-gray-300">Reads</a>
+                <a href="/donate" class="hover:text-custom-gold transition font-medium text-gray-300">Donate</a>
+                <a href="https://blog.custodybuddy.com" class="hover:text-custom-gold transition font-medium text-gray-300" target="_blank" rel="noopener noreferrer">Blog</a>
+                <a href="/contact" class="hover:text-custom-gold transition font-medium text-gray-300">Contact</a>
+                <a href="/incident-report" class="inline-block bg-custom-gold text-black font-semibold py-2 px-6 rounded-full shadow-lg transition-transform transform hover:scale-105 hover:shadow-custom-gold/40 border-2 border-custom-gold">
+                    Start Now
+                </a>
+            </div>
+
+            <!-- FIXED: Mobile Menu Toggle Button (for JS to hook into) -->
+            <button id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false" class="md:hidden text-white hover:text-custom-gold transition focus:outline-none p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+            </button>
+
+        </div>
+        
+        <!-- Mobile Menu Drawer (Hidden by Default) -->
+        <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-custom-dark-blue z-40 md:hidden transform -translate-x-full transition-transform duration-300 ease-in-out">
+            <button id="mobile-menu-close" aria-label="Close menu" class="absolute top-6 right-4 text-white hover:text-custom-gold p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+            </button>
+            <div class="p-6 pt-20 flex flex-col gap-6 text-xl text-center">
+                <a href="/" class="font-bold text-custom-gold">Home</a>
+                <a href="/#features" class="hover:text-custom-gold transition-colors">Features</a>
+                <a href="/#social-proof" class="hover:text-custom-gold transition-colors">Testimonials</a>
+                <a href="https://blog.custodybuddy.com" class="hover:text-custom-gold transition-colors" target="_blank" rel="noopener noreferrer">Blog</a>
+                <a href="/contact/" class="hover:text-custom-gold transition-colors">Contact</a>
+                <a href="/#features" class="inline-block bg-custom-gold text-black font-semibold py-3 px-8 rounded-full shadow-lg mt-4">Start Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" class="container mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 min-h-screen" tabindex="-1">
+        
+        <!-- FIXED: Breadcrumb with Tailwind styling -->
+        <nav aria-label="Breadcrumb" class="text-sm text-gray-500 mb-8" role="navigation">
+            <ol class="flex space-x-2">
+                <li><a href="/" class="hover:text-custom-gold transition">Home</a></li>
+                <li class="select-none text-gray-700">/</li>
+                <li><a href="/guides/" class="hover:text-custom-gold transition">Guides</a></li>
+                <li class="select-none text-gray-700">/</li>
+                <li aria-current="page" class="text-custom-gold font-medium">Prompt Library</li>
+            </ol>
+        </nav>
+
+        <article class="content-area" itemscope itemtype="https://schema.org/Article">
+            <header class="page-header">
+                <h1 itemprop="headline" class="text-3xl md:text-5xl font-extrabold text-custom-gold text-custom-gold-shadow mb-6">Prompt Library: High-Conflict Custody (Canada)</h1>
+                <p class="lede text-gray-300 text-lg mb-8 p-4 border-l-4 border-custom-gold bg-gray-900/50 rounded-lg">
+                    ⚠️ <strong>Note:</strong> These prompts are designed to help you <em>work with</em> an AI assistant to draft, organize, and prepare. They’re not legal advice. Always cross-check with your province’s official guides, forms, and—if possible—a lawyer.
+                </p>
+                
+                <section class="anchors mb-10 p-6 bg-gray-900 rounded-xl border border-gray-800" aria-labelledby="anchors-heading">
+                    <h2 id="anchors-heading" class="text-2xl font-bold mb-4 border-none text-white">Canadian Anchors for Accuracy</h2>
+                    <ul class="list-disc list-inside space-y-2 text-gray-400">
+                        <li><strong>Divorce Act</strong> (best interests of the child + family violence)</li>
+                        <li><strong>Federal Child Support Guidelines</strong></li>
+                        <li><strong>Spousal Support Advisory Guidelines (SSAG)</strong></li>
+                        <li>Ontario <strong>Family Law Rules &amp; forms</strong> (swap for your province as needed)</li>
+                        <li><a href="https://www.amazon.ca/dp/1936268728?tag=custodybudd0c-20&language=en_CA" rel="noopener noreferrer" class="text-custom-gold hover:underline"><strong>BIFF</strong></a> communication method (Brief, Informative, Friendly, Firm)</li>
+                        <li><strong>CanLII</strong> for case law</li>
+                    </ul>
+                    <p class="text-xs text-gray-600 mt-4">
+                        References: <a href="#ref-1">[Ministère de la Justice]</a><a href="#ref-2">[CanLII]</a><a href="#ref-3">[High Conflict Institute]</a>
+                    </p>
+                </section>
+            </header>
+
+            <div class="space-y-12">
+                
+                <section id="s1">
+                    <h2>1) Situation Snapshot (Case Intake)</h2>
+                    <p class="mb-4 text-gray-400"><strong>When to use:</strong> prepping a crisp summary for a lawyer, mediator, or judge.</p>
+                    <figure class="bg-section-dark border border-custom-gold/20 rounded-lg p-5 relative group">
+                        <figcaption class="text-xs uppercase tracking-wider font-semibold text-custom-gold/70 mb-2">Prompt</figcaption>
+                        <pre tabindex="0" class="bg-gray-800/50 p-3 rounded-md overflow-x-auto text-sm text-gray-200 border border-gray-700"><code id="p1">Summarize my family-law case in Canada under headings: parties, kids (ages/needs), status quo schedule, disputes, family-violence concerns, court steps, next deadlines, exhibits list. Max 250 words. Highlight best interests and any family violence factors per the Divorce Act.</code></pre>
+                        <button class="copy-btn copy-button absolute top-4 right-4 bg-custom-gold text-black px-3 py-1 rounded-full text-xs font-semibold opacity-0 group-hover:opacity-100 transition duration-300" data-copy="p1" aria-label="Copy prompt 1">Copy</button>
+                    </figure>
+                    <p class="backtop mt-4 text-sm text-right"><a href="#main-nav" class="text-gray-500 hover:text-custom-gold transition">Back to top</a></p>
+                </section>
+
+                <section id="s2">
+                    <h2>2) Incident Log &amp; Evidence</h2>
+                    <p class="mb-4 text-gray-400"><strong>When to use:</strong> recording exchanges, threats, or safety issues.</p>
+                    <figure class="bg-section-dark border border-custom-gold/20 rounded-lg p-5 relative group">
+                        <figcaption class="text-xs uppercase tracking-wider font-semibold text-custom-gold/70 mb-2">Prompt</figcaption>
+                        <pre tabindex="0" class="bg-gray-800/50 p-3 rounded-md overflow-x-auto text-sm text-gray-200 border border-gray-700"><code id="p2">Turn this event into a neutral log: date/time, who/what/where, evidence refs (screenshots/email IDs), child impact, no character attacks. Add one line linking to the best-interests factor affected.</code></pre>
+                        <button class="copy-btn copy-button absolute top-4 right-4 bg-custom-gold text-black px-3 py-1 rounded-full text-xs font-semibold opacity-0 group-hover:opacity-100 transition duration-300" data-copy="p2" aria-label="Copy prompt 2">Copy</button>
+                    </figure>
+                    <p class="backtop mt-4 text-sm text-right"><a href="#main-nav" class="text-gray-500 hover:text-custom-gold transition">Back to top</a></p>
+                </section>
+                
+                <section id="s3">
+                    <h2>3) BIFF Message Rewrites</h2>
+                    <p class="mb-4 text-gray-400"><strong>When to use:</strong> replying to hostile emails/texts.</p>
+                    <figure class="bg-section-dark border border-custom-gold/20 rounded-lg p-5 relative group">
+                        <figcaption class="text-xs uppercase tracking-wider font-semibold text-custom-gold/70 mb-2">Prompt</figcaption>
+                        <pre tabindex="0" class="bg-gray-800/50 p-3 rounded-md overflow-x-auto text-sm text-gray-200 border border-gray-700"><code id="p3">Rewrite my draft to the other parent in <a href="https://www.amazon.ca/dp/1936268728?tag=custodybudd0c-20&language=en_CA" rel="noopener noreferrer" class="text-custom-gold hover:underline">BIFF</a> style: brief, fact-based, 1 proposal + deadline, polite close. 100 words max.</code></pre>
+                        <button class="copy-btn copy-button absolute top-4 right-4 bg-custom-gold text-black px-3 py-1 rounded-full text-xs font-semibold opacity-0 group-hover:opacity-100 transition duration-300" data-copy="p3" aria-label="Copy prompt 3">Copy</button>
+                    </figure>
+                    <p class="backtop mt-4 text-sm text-right"><a href="#main-nav" class="text-gray-500 hover:text-custom-gold transition">Back to top</a></p>
+                </section>
+                
+                <section id="s4">
+                    <h2>4) Parenting Plan (Canada Terms)</h2>
+                    <p class="mb-4 text-gray-400"><strong>When to use:</strong> drafting or updating parenting plans.</p>
+                    <figure class="bg-section-dark border border-custom-gold/20 rounded-lg p-5 relative group">
+                        <figcaption class="text-xs uppercase tracking-wider font-semibold text-custom-gold/70 mb-2">Prompt</figcaption>
+                        <pre tabindex="0" class="bg-gray-800/50 p-3 rounded-md overflow-x-auto text-sm text-gray-200 border border-gray-700"><code id="p4">Outline a parenting plan using Canadian law terms (decision-making responsibility & parenting time). Cover: schedules, holidays, travel, info-sharing, dispute resolution, relocation notice, tech rules, and safety planning. Include a checklist of docs each parent must share.</code></pre>
+                        <button class="copy-btn copy-button absolute top-4 right-4 bg-custom-gold text-black px-3 py-1 rounded-full text-xs font-semibold opacity-0 group-hover:opacity-100 transition duration-300" data-copy="p4" aria-label="Copy prompt 4">Copy</button>
+                    </figure>
+                    <p class="backtop mt-4 text-sm text-right"><a href="#main-nav" class="text-gray-500 hover:text-custom-gold transition">Back to top</a></p>
+                </section>
+                
+                <section id="s5">
+                    <h2>5) Court Forms Helper (Ontario Example)</h2>
+                    <p class="mb-4 text-gray-400"><strong>When to use:</strong> figuring out forms or drafting affidavits.</p>
+                    <figure class="bg-section-dark border border-custom-gold/20 rounded-lg p-5 relative group">
+                        <figcaption class="text-xs uppercase tracking-wider font-semibold text-custom-gold/70 mb-2">Prompts</figcaption>
+                        <pre tabindex="0" class="bg-gray-800/50 p-3 rounded-md overflow-x-auto text-sm text-gray-200 border border-gray-700"><code id="p5">
+"List which Ontario forms I likely need (e.g., Form 10 Answer, Form 13/13.1 Financial Statement, Form 35.1 Parenting Affidavit), what each proves, and required attachments."
+
+"Convert these facts into numbered, evidence-anchored paragraphs for Form 35.1. Neutral tone, cross-referencing exhibits."</code></pre>
+                        <button class="copy-btn copy-button absolute top-4 right-4 bg-custom-gold text-black px-3 py-1 rounded-full text-xs font-semibold opacity-0 group-hover:opacity-100 transition duration-300" data-copy="p5" aria-label="Copy prompt 5">Copy</button>
+                    </figure>
+                    <p class="backtop mt-4 text-sm text-right"><a href="#main-nav" class="text-gray-500 hover:text-custom-gold transition">Back to top</a></p>
+                </section>
+                
+                <section id="s6">
+                    <h2>6) Financial Disclosure &amp; Child Support</h2>
+                    <p class="mb-4 text-gray-400"><strong>When to use:</strong> organizing documents and support asks.</p>
+                    <figure class="bg-section-dark border border-custom-gold/20 rounded-lg p-5 relative group">
+                        <figcaption class="text-xs uppercase tracking-wider font-semibold text-custom-gold/70 mb-2">Prompts</figcaption>
+                        <pre tabindex="0" class="bg-gray-800/50 p-3 rounded-md overflow-x-auto text-sm text-gray-200 border border-gray-700"><code id="p6">
+"Make a disclosure checklist for Form 13/13.1 with T1s, NOAs, pay stubs, bank statements, section-7 receipts—listed in filing order."
+
+"Using the Federal Child Support Tables, estimate table support for income \$X, province Y, N kids. Note what may change the amount (special expenses, undue hardship)."</code></pre>
+                        <button class="copy-btn copy-button absolute top-4 right-4 bg-custom-gold text-black px-3 py-1 rounded-full text-xs font-semibold opacity-0 group-hover:opacity-100 transition duration-300" data-copy="p6" aria-label="Copy prompt 6">Copy</button>
+                    </figure>
+                    <p class="backtop mt-4 text-sm text-right"><a href="#main-nav" class="text-gray-500 hover:text-custom-gold transition">Back to top</a></p>
+                </section>
+                
+                <section id="s7">
+                    <h2>7) Spousal Support (SSAG)</h2>
+                    <p class="mb-4 text-gray-400"><strong>When to use:</strong> scoping ranges after entitlement.</p>
+                    <figure class="bg-section-dark border border-custom-gold/20 rounded-lg p-5 relative group">
+                        <figcaption class="text-xs uppercase tracking-wider font-semibold text-custom-gold/70 mb-2">Prompt</figcaption>
+                        <pre tabindex="0" class="bg-gray-800/50 p-3 rounded-md overflow-x-auto text-sm text-gray-200 border border-gray-700"><code id="p7">Make an SSAG inputs checklist: relationship length, ages, incomes, childcare, tax credits, special circumstances. Explain how ‘with child’ vs. ‘without child’ formulas change ranges, and what info is missing.</code></pre>
+                        <button class="copy-btn copy-button absolute top-4 right-4 bg-custom-gold text-black px-3 py-1 rounded-full text-xs font-semibold opacity-0 group-hover:opacity-100 transition duration-300" data-copy="p7" aria-label="Copy prompt 7">Copy</button>
+                    </figure>
+                    <p class="backtop mt-4 text-sm text-right"><a href="#main-nav" class="text-gray-500 hover:text-custom-gold transition">Back to top</a></p>
+                </section>
+                
+                <section id="s8">
+                    <h2>8) Offers to Settle &amp; Costs (Ontario)</h2>
+                    <p class="mb-4 text-gray-400"><strong>When to use:</strong> drafting proposals + reducing cost risk.</p>
+                    <figure class="bg-section-dark border border-custom-gold/20 rounded-lg p-5 relative group">
+                        <figcaption class="text-xs uppercase tracking-wider font-semibold text-custom-gold/70 mb-2">Prompts</figcaption>
+                        <pre tabindex="0" class="bg-gray-800/50 p-3 rounded-md overflow-x-auto text-sm text-gray-200 border border-gray-700"><code id="p8">
+"Draft an Offer to Settle (Rule 18): expiry, cost consequences note, signature block. Separate issues: parenting, child support, spousal support, disclosure timelines."
+
+"Explain Rule 24 costs: when costs are presumed, judge’s factors, and how rejected Offers affect costs."</code></pre>
+                        <button class="copy-btn copy-button absolute top-4 right-4 bg-custom-gold text-black px-3 py-1 rounded-full text-xs font-semibold opacity-0 group-hover:opacity-100 transition duration-300" data-copy="p8" aria-label="Copy prompt 8">Copy</button>
+                    </figure>
+                    <p class="backtop mt-4 text-sm text-right"><a href="#main-nav" class="text-gray-500 hover:text-custom-gold transition">Back to top</a></p>
+                </section>
+                
+                <section id="s9">
+                    <h2>9) Settlement Conference Prep</h2>
+                    <p class="mb-4 text-gray-400"><strong>When to use:</strong> organizing for a conference.</p>
+                    <figure class="bg-section-dark border border-custom-gold/20 rounded-lg p-5 relative group">
+                        <figcaption class="text-xs uppercase tracking-wider font-semibold text-custom-gold/70 mb-2">Prompt</figcaption>
+                        <pre tabindex="0" class="bg-gray-800/50 p-3 rounded-md overflow-x-auto text-sm text-gray-200 border border-gray-700"><code id="p9">Build a settlement-conference agenda: top 3 issues -> (a) current order, (b) my proposal, (c) child-focused rationale, (d) exhibit refs. End with my final global offer + cost-risk reminder.</code></pre>
+                        <button class="copy-btn copy-button absolute top-4 right-4 bg-custom-gold text-black px-3 py-1 rounded-full text-xs font-semibold opacity-0 group-hover:opacity-100 transition duration-300" data-copy="p9" aria-label="Copy prompt 9">Copy</button>
+                    </figure>
+                    <p class="backtop mt-4 text-sm text-right"><a href="#main-nav" class="text-gray-500 hover:text-custom-gold transition">Back to top</a></p>
+                </section>
+                
+                <section id="s10">
+                    <h2>10) Case Law (CanLII)</h2>
+                    <p class="mb-4 text-gray-400"><strong>When to use:</strong> DIY legal research.</p>
+                    <figure class="bg-section-dark border border-custom-gold/20 rounded-lg p-5 relative group">
+                        <figcaption class="text-xs uppercase tracking-wider font-semibold text-custom-gold/70 mb-2">Prompts</figcaption>
+                        <pre tabindex="0" class="bg-gray-800/50 p-3 rounded-md overflow-x-auto text-sm text-gray-200 border border-gray-700"><code id="p10">
+"Write a CanLII search string for [province], topic = [e.g. relocation], last 5 years, narrowed by court level."
+
+"Pull 5 key quotes from these CanLII cases on [issue]. Provide short, neutral summaries with citations."</code></pre>
+                        <button class="copy-btn copy-button absolute top-4 right-4 bg-custom-gold text-black px-3 py-1 rounded-full text-xs font-semibold opacity-0 group-hover:opacity-100 transition duration-300" data-copy="p10" aria-label="Copy prompt 10">Copy</button>
+                    </figure>
+                    <p class="backtop mt-4 text-sm text-right"><a href="#main-nav" class="text-gray-500 hover:text-custom-gold transition">Back to top</a></p>
+                </section>
+                
+                <section id="s11">
+                    <h2>11) OCL / Assessors</h2>
+                    <p class="mb-4 text-gray-400"><strong>When to use:</strong> communicating with professionals.</p>
+                    <figure class="bg-section-dark border border-custom-gold/20 rounded-lg p-5 relative group">
+                        <figcaption class="text-xs uppercase tracking-wider font-semibold text-custom-gold/70 mb-2">Prompt</figcaption>
+                        <pre tabindex="0" class="bg-gray-800/50 p-3 rounded-md overflow-x-auto text-sm text-gray-200 border border-gray-700"><code id="p11">Draft a respectful email to the OCL/assessor: child’s needs, status quo, safety concerns (facts only), and collateral requests. Keep it concise + child-focused.</code></pre>
+                        <button class="copy-btn copy-button absolute top-4 right-4 bg-custom-gold text-black px-3 py-1 rounded-full text-xs font-semibold opacity-0 group-hover:opacity-100 transition duration-300" data-copy="p11" aria-label="Copy prompt 11">Copy</button>
+                    </figure>
+                    <p class="backtop mt-4 text-sm text-right"><a href="#main-nav" class="text-gray-500 hover:text-custom-gold transition">Back to top</a></p>
+                </section>
+                
+                <section id="s12">
+                    <h2>12) School &amp; Health Letters</h2>
+                    <p class="mb-4 text-gray-400"><strong>When to use:</strong> requesting neutral records.</p>
+                    <figure class="bg-section-dark border border-custom-gold/20 rounded-lg p-5 relative group">
+                        <figcaption class="text-xs uppercase tracking-wider font-semibold text-custom-gold/70 mb-2">Prompt</figcaption>
+                        <pre tabindex="0" class="bg-gray-800/50 p-3 rounded-md overflow-x-auto text-sm text-gray-200 border border-gray-700"><code id="p12">Write a one-page request to [school/doctor] for attendance/health records. Include consent, date range, and secure delivery instructions.</code></pre>
+                        <button class="copy-btn copy-button absolute top-4 right-4 bg-custom-gold text-black px-3 py-1 rounded-full text-xs font-semibold opacity-0 group-hover:opacity-100 transition duration-300" data-copy="p12" aria-label="Copy prompt 12">Copy</button>
+                    </figure>
+                    <p class="backtop mt-4 text-sm text-right"><a href="#main-nav" class="text-gray-500 hover:text-custom-gold transition">Back to top</a></p>
+                </section>
+                
+                <section id="s13">
+                    <h2>13) Parallel Parenting &amp; Safety</h2>
+                    <p class="mb-4 text-gray-400"><strong>When to use:</strong> when joint decision-making isn’t possible.</p>
+                    <figure class="bg-section-dark border border-custom-gold/20 rounded-lg p-5 relative group">
+                        <figcaption class="text-xs uppercase tracking-wider font-semibold text-custom-gold/70 mb-2">Prompt</figcaption>
+                        <pre tabindex="0" class="bg-gray-800/50 p-3 rounded-md overflow-x-auto text-sm text-gray-200 border border-gray-700"><code id="p13">Propose a parallel-parenting protocol: decision zones, info-sharing timelines, handoff rules, <a href="https://www.amazon.ca/dp/1936268728?tag=custodybudd0c-20&language=en_CA" rel="noopener noreferrer" class="text-custom-gold hover:underline">BIFF</a> clause. Flag Divorce Act family-violence factors (coercive control, financial abuse).</code></pre>
+                        <button class="copy-btn copy-button absolute top-4 right-4 bg-custom-gold text-black px-3 py-1 rounded-full text-xs font-semibold opacity-0 group-hover:opacity-100 transition duration-300" data-copy="p13" aria-label="Copy prompt 13">Copy</button>
+                    </figure>
+                    <p class="backtop mt-4 text-sm text-right"><a href="#main-nav" class="text-gray-500 hover:text-custom-gold transition">Back to top</a></p>
+                </section>
+                
+                <section id="s14">
+                    <h2>14) Relocation / Mobility</h2>
+                    <p class="mb-4 text-gray-400"><strong>When to use:</strong> moving or responding to moves.</p>
+                    <figure class="bg-section-dark border border-custom-gold/20 rounded-lg p-5 relative group">
+                        <figcaption class="text-xs uppercase tracking-wider font-semibold text-custom-gold/70 mb-2">Prompt</figcaption>
+                        <pre tabindex="0" class="bg-gray-800/50 p-3 rounded-md overflow-x-auto text-sm text-gray-200 border border-gray-700"><code id="p14">Make a relocation checklist: notice requirements, best-interests analysis, preserving relationships (virtual time, travel cost-sharing), evidence needed.</code></pre>
+                        <button class="copy-btn copy-button absolute top-4 right-4 bg-custom-gold text-black px-3 py-1 rounded-full text-xs font-semibold opacity-0 group-hover:opacity-100 transition duration-300" data-copy="p14" aria-label="Copy prompt 14">Copy</button>
+                    </figure>
+                    <p class="backtop mt-4 text-sm text-right"><a href="#main-nav" class="text-gray-500 hover:text-custom-gold transition">Back to top</a></p>
+                </section>
+                
+                <!-- === NEW SECTION: CustodyBuddy AI Tools === -->
+                <section id="ai-tools">
+                    <h2 class="mt-12">CustodyBuddy AI Tools for Your Case</h2>
+                    <p class="lede text-gray-300 text-lg mb-6">You don't have to navigate this alone. These three dedicated AI tools are designed to help you prepare, manage communication, and organize your case. They act as your supportive guide, offering structure and clarity during a difficult time.</p>
+                    
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <figure class="bg-section-dark border border-custom-gold/20 rounded-lg relative group">
+                            <figcaption class="text-xl font-semibold text-white/90 p-5 pb-3">Report an Incident</figcaption>
+                            <div class="p-5 pt-0 text-sm md:text-base space-y-4">
+                                <p class="mb-3 text-gray-400">Feeling overwhelmed by a new incident? This tool guides you step-by-step to **report an incident**, generate a neutral summary, classify it legally, assess its severity, and prepare a detailed report or lawyer email. It even includes an evidence checklist to ensure nothing is missed. Confidential and actionable.</p>
+                                <a href="https://chatgpt.com/g/g-AVknXUkkh-custodybuddy-com-report-an-incident" target="_blank" class="block w-full text-center bg-custom-gold text-black font-semibold py-2 px-4 rounded-full transition-colors hover:bg-white copy-button shadow-none hover:shadow-lg">
+                                    Launch Report an Incident
+                                </a>
+                            </div>
+                        </figure>
+                        
+                        <figure class="bg-section-dark border border-custom-gold/20 rounded-lg relative group">
+                            <figcaption class="text-xl font-semibold text-white/90 p-5 pb-3">Email Law Buddy</figcaption>
+                            <div class="p-5 pt-0 text-sm md:text-base space-y-4">
+                                <p class="mb-3 text-gray-400">Dealing with hostile emails? The Email Law Buddy helps you manage difficult exchanges using the <a href="https://www.amazon.ca/dp/1936268728?tag=custodybudd0c-20&language=en_CA" rel="noopener noreferrer" class="text-custom-gold hover:underline">**BIFF**</a> method—Brief, Informative, Friendly, Firm. It can de-escalate responses, summarize confusing conflict emails, and provide clear next steps. Stay calm, clear, and in control of your communication.</p>
+                                <a href="https://chatgpt.com/g/g-681d37904f8481919508226a5b2f4bb8-email-law-buddy-custodybuddy-com" target="_blank" class="block w-full text-center bg-custom-gold text-black font-semibold py-2 px-4 rounded-full transition-colors hover:bg-white copy-button shadow-none hover:shadow-lg">
+                                    Launch Email Law Buddy
+                                </a>
+                            </div>
+                        </figure>
+                        
+                        <figure class="bg-section-dark border border-custom-gold/20 rounded-lg relative group">
+                            <figcaption class="text-xl font-semibold text-white/90 p-5 pb-3">Family Law Case Analysis Tool</figcaption>
+                            <div class="p-5 pt-0 text-sm md:text-base space-y-4">
+                                <p class="mb-3 text-gray-400">Need to get organized? This **Family Law Case Analysis Tool** helps you summarize key issues, guide your legal strategy, and track court forms and deadlines. Tailored by your jurisdiction and case type (custody, support, divorce), this AI assistant provides a comprehensive, structured approach to managing your file.</p>
+                                <a href="https://chatgpt.com/g/g-67eb2e37f6f88191aff3cef576ff0e3b-family-law-case-analysis-tool-custodybuddy-com" target="_blank" class="block w-full text-center bg-custom-gold text-black font-semibold py-2 px-4 rounded-full transition-colors hover:bg-white copy-button shadow-none hover:shadow-lg">
+                                    Launch Case Analysis Tool
+                                </a>
+                            </div>
+                        </figure>
+                    </div>
+                    
+                    <p class="backtop mt-4 text-sm text-right"><a href="#main-nav" class="text-gray-500 hover:text-custom-gold transition">Back to top</a></p>
+                </section>
+                
+                <section id="howto">
+                    <h2>How to Use This Library</h2>
+                    <ol class="list-decimal list-inside space-y-3 mt-4 max-w-prose text-gray-300">
+                        <li>Copy a prompt and paste it into your AI assistant.</li>
+                        <li>Replace placeholders like **[province]**, **[child's age]**, or **[income]** with your specifics.</li>
+                        <li>Provide your facts in a neutral, child-focused way.</li>
+                        <li>Save every draft and the source prompt you used.</li>
+                        <li>Always double-check AI output against official guides and forms. If possible, consult a lawyer.</li>
+                    </ol>
+                </section>
+            </div>
+
+            <aside class="toc p-6 bg-gray-900 rounded-xl border border-gray-800 lg:ml-8 mt-8 lg:mt-0" aria-labelledby="toc-heading">
+                <h2 id="toc-heading" class="font-bold text-xl mb-4 border-none text-white">On this page</h2>
+                <nav aria-label="Sections">
+                    <ol class="space-y-2 text-sm">
+                        <li><a href="#s1" class="text-gray-400 hover:text-custom-gold transition">1) Situation Snapshot</a></li>
+                        <li><a href="#s2" class="text-gray-400 hover:text-custom-gold transition">2) Incident Log &amp; Evidence</a></li>
+                        <li><a href="#s3" class="text-gray-400 hover:text-custom-gold transition">3) BIFF Message Rewrites</a></li>
+                        <li><a href="#s4" class="text-gray-400 hover:text-custom-gold transition">4) Parenting Plan (Canada)</a></li>
+                        <li><a href="#s5" class="text-gray-400 hover:text-custom-gold transition">5) Court Forms Helper</a></li>
+                        <li><a href="#s6" class="text-gray-400 hover:text-custom-gold transition">6) Financial Disclosure &amp; Child Support</a></li>
+                        <li><a href="#s7" class="text-gray-400 hover:text-custom-gold transition">7) Spousal Support (SSAG)</a></li>
+                        <li><a href="#s8" class="text-gray-400 hover:text-custom-gold transition">8) Offers to Settle &amp; Costs</a></li>
+                        <li><a href="#s9" class="text-gray-400 hover:text-custom-gold transition">9) Settlement Conference Prep</a></li>
+                        <li><a href="#s10" class="text-gray-400 hover:text-custom-gold transition">10) Case Law (CanLII)</a></li>
+                        <li><a href="#s11" class="text-gray-400 hover:text-custom-gold transition">11) OCL / Assessors</a></li>
+                        <li><a href="#s12" class="text-gray-400 hover:text-custom-gold transition">12) School &amp; Health Letters</a></li>
+                        <li><a href="#s13" class="text-gray-400 hover:text-custom-gold transition">13) Parallel Parenting &amp; Safety</a></li>
+                        <li><a href="#s14" class="text-gray-400 hover:text-custom-gold transition">14) Relocation / Mobility</a></li>
+                        <li><a href="#ai-tools" class="text-gray-400 hover:text-custom-gold transition">CustodyBuddy AI Tools</a></li>
+                        <li><a href="#howto" class="text-gray-400 hover:text-custom-gold transition">How to Use This Library</a></li>
+                    </ol>
+                </nav>
+            </aside>
+        </article>
+    </main>
+
+    <!-- Footer (Pattern: #1 / section-dark / #0a0a0a) -->
+    <footer id="footer" class="bg-section-dark py-10 md:py-12 border-t border-custom-gold/20">
+        <div class="container mx-auto px-4 text-center text-gray-400">
+            <div class="mb-6">
+                 <!-- BRANDING: CUSTODY (Gold), BUDDY (White), .COM (Gold) -->
+                 <a href="/" class="text-xl font-black transition-transform transform hover:scale-105">
+                    <span class="text-custom-gold">CUSTODY</span><span class="text-white">BUDDY</span><span class="text-custom-gold">.COM</span>
+                </a>
+            </div>
+            <div class="flex flex-wrap justify-center space-x-4 md:space-x-8 mb-6 text-sm md:text-base">
+                <a href="#features" class="hover:text-custom-gold transition">Features</a>
+                <a href="#social-proof" class="hover:text-custom-gold transition">Testimonials</a>
+                <a href="#recommended-reads" class="hover:text-custom-gold transition">Reads</a>
+                <a href="/contact" class="hover:text-custom-gold transition">Contact</a> 
+                <a href="/terms-of-use" class="hover:text-custom-gold transition">Terms of Service</a>
+                <a href="/privacy-policy" class="hover:text-custom-gold transition">Privacy Policy</a>
+            </div>
+            <p class="text-xs max-w-3xl mx-auto italic border-t border-gray-800 pt-4 mt-4">
+                **Disclaimer:** CustodyBuddy.com is an AI-powered legal toolkit and resource hub, NOT a law firm. The content and tools provided are for informational and organizational purposes only and do not constitute legal advice. Always consult with a qualified legal professional for advice regarding your individual situation.
+            </p>
+            <p class="mt-6 text-sm">&copy; 2024 CustodyBuddy.com. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Self-contained site scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Mobile Menu Logic ---
+            const menuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuClose = document.getElementById('mobile-menu-close');
+
+            if (menuToggle && mobileMenu && menuClose) {
+                const openMenu = () => {
+                    mobileMenu.classList.remove('-translate-x-full');
+                    menuToggle.setAttribute('aria-expanded', 'true');
+                    document.body.style.overflow = 'hidden';
+                };
+
+                const closeMenu = () => {
+                    mobileMenu.classList.add('-translate-x-full');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                };
+
+                menuToggle.addEventListener('click', () => {
+                    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+                    isExpanded ? closeMenu() : openMenu();
+                });
+
+                menuClose.addEventListener('click', closeMenu);
+
+                // Add event listeners to all links inside the mobile menu to close it upon clicking
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', closeMenu);
+                });
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+                        closeMenu();
+                    }
+                });
+
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth >= 768 && menuToggle.getAttribute('aria-expanded') === 'true') {
+                        closeMenu();
+                    }
+                });
+            }
+
+            // --- Copy Button Logic ---
+            const copyButtons = document.querySelectorAll('.copy-btn');
+
+            const fallbackCopy = async (text, button) => {
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                textArea.style.position = 'fixed';
+                textArea.style.top = '-9999px';
+                textArea.style.left = '-9999px';
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showCopiedMessage(button);
+                } catch (err) {
+                    console.error('Fallback copy failed', err);
+                    button.innerText = 'Error';
+                }
+                document.body.removeChild(textArea);
+            }
+
+            const showCopiedMessage = (button) => {
+                const originalText = button.innerHTML;
+                button.innerText = 'Copied!';
+                button.disabled = true;
+                // Add the animation class for feedback
+                button.classList.add('animate-press-down');
+                
+                setTimeout(() => {
+                    button.innerText = 'Copy';
+                    button.disabled = false;
+                    button.classList.remove('animate-press-down');
+                }, 2000);
+            }
+
+            copyButtons.forEach(button => {
+                button.addEventListener('click', async () => {
+                    const targetId = button.dataset.copy;
+                    const targetElement = document.getElementById(targetId);
+                    if (!targetElement) return;
+
+                    // Use innerText which strips any HTML/Markdown, giving a clean prompt string
+                    const textToCopy = targetElement.innerText.trim();
+
+                    if (navigator.clipboard && window.isSecureContext) {
+                        try {
+                            await navigator.clipboard.writeText(textToCopy);
+                            showCopiedMessage(button);
+                        } catch (err) {
+                            console.error('Clipboard API failed, using fallback.', err);
+                            await fallbackCopy(textToCopy, button);
+                        }
+                    } else {
+                        await fallbackCopy(textToCopy, button);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

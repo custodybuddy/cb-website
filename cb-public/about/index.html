@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About CustodyBuddy - Our Mission</title>
+    <meta name="description" content="Learn about CustodyBuddy's mission, founder's story, and commitment to providing AI-powered tools for high-conflict co-parenting cases.">
+    
+    <!-- Tailwind CSS Script --><script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Custom Tailwind configuration for consistency
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'custom-gold': '#FFD700', // Primary Accent
+                        'custom-gold-light': '#E9D09B', 
+                        'custom-dark-blue': '#0d1a2e', 
+                        'custom-navy-dark': '#010A1A', // Darker navy (Page BG)
+                        'section-dark': '#0a0a0a', // Slightly lighter black (Card BG)
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    // Keyframe and animation definitions for visual effect
+                    keyframes: {
+                        'fade-in-down': { '0%': { opacity: '0', transform: 'translateY(-10px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        'fade-in-up': { '0%': { opacity: '0', transform: 'translateY(10px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                    },
+                    animation: {
+                        'fade-in-down': 'fade-in-down 0.6s ease-out',
+                        'fade-in-up': 'fade-in-up 0.6s ease-out',
+                    }
+                },
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles for Visual Depth and Interactions --><style>
+        body {
+            background-color: #000000;
+        }
+        .text-custom-gold-shadow {
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+        }
+        .nav-shadow {
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.1);
+        }
+        /* Style for the founder's quote separator */
+        .founder-separator {
+            border-top: 1px solid #374151; /* Dark gray */
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        /* Custom background for the main content card */
+        .textured-card {
+            background: radial-gradient(circle at top left, rgba(255, 215, 0, 0.03) 0%, rgba(1, 10, 26, 0.95) 70%), #0a0a0a;
+        }
+    </style>
+
+    <!-- Inter Font Import --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons --><script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-custom-navy-dark text-white font-inter antialiased">
+
+    <!-- Navigation Bar -->
+    <nav id="main-nav" class="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur-sm nav-shadow py-4 transition-all duration-300 border-b border-gray-800">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <!-- BRANDING: CUSTODY (Gold), BUDDY (White), .COM (Gold) -->
+            <a href="https://custodybuddy.com" class="text-xl md:text-2xl font-black transition-transform transform hover:scale-105">
+                <span class="text-custom-gold">CUSTODY</span><span class="text-white">BUDDY</span><span class="text-custom-gold">.COM</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="https://custodybuddy.com" class="hover:text-custom-gold transition font-medium text-gray-300">Home</a>
+                <a href="#features" class="hover:text-custom-gold transition font-medium text-gray-300">Features</a>
+                <a href="/about" class="hover:text-custom-gold transition font-medium text-gray-300">About</a>
+                <a href="#recommended-reads" class="hover:text-custom-gold transition font-medium text-gray-300">Reads</a>
+                <a href="/donate" class="hover:text-custom-gold transition font-medium text-gray-300">Donate</a>
+                <a href="https://blog.custodybuddy.com" class="hover:text-custom-gold transition font-medium text-gray-300" target="_blank" rel="noopener noreferrer">Blog</a>
+                <a href="/contact" class="hover:text-custom-gold transition font-medium text-gray-300">Contact</a>
+                <a href="/incident-report" class="inline-block bg-custom-gold text-black font-semibold py-2 px-6 rounded-full shadow-lg transition-transform transform hover:scale-105 hover:shadow-custom-gold/40 border-2 border-custom-gold">
+                    Start Now
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Toggle (Placeholder) --><button aria-label="Toggle mobile menu" class="md:hidden text-white hover:text-custom-gold transition focus:outline-none" onclick="toggleMobileMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
+                    <line x1="4" x2="20" y1="12" y2="12"></line>
+                    <line x1="4" x2="20" y1="6" y2="6"></line>
+                    <line x1="4" x2="20" y1="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+         <!-- Mobile Menu Drawer (Hidden by Default) --><div id="mobile-menu" class="hidden md:hidden pt-4 pb-2">
+            <div class="flex flex-col space-y-2 px-4">
+                <a href="https://custodybuddy.com/" class="text-gray-300 hover:text-custom-gold py-2 transition border-b border-gray-700/50">Home</a>
+                <a href="https://custodybuddy.com/donate" class="text-gray-300 hover:text-custom-gold py-2 transition border-b border-gray-700/50">Donate</a>
+                <a href="https://custodybuddy.com/contact" class="text-gray-300 hover:text-custom-gold py-2 transition border-b border-gray-700/50">Contact</a>
+                <a href="https://custodybuddy.com/privacy-policy" class="text-gray-300 hover:text-custom-gold py-2 transition border-b border-gray-700/50">Privacy</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content --><main class="pt-32 md:pt-40 pb-20">
+        <div class="container mx-auto px-4">
+            <!-- Main Content Card with Textured Background --><div class="max-w-4xl mx-auto textured-card rounded-2xl shadow-2xl p-6 md:p-10 animate-fade-in-up border border-custom-gold/40">
+                <h1 class="text-4xl sm:text-5xl font-extrabold mb-6 text-custom-gold text-center text-custom-gold-shadow">
+                    About CustodyBuddy.com
+                </h1>
+                
+                <!-- Mission Section --><div class="text-gray-300 text-lg leading-relaxed space-y-6">
+                    <p class="text-xl text-white font-bold border-b border-custom-gold/50 pb-4 mb-4">
+                        Our mission is to empower self-represented parents with the tools and information they need to navigate the complexities of high-conflict co-parenting and the family law system.
+                    </p>
+                    <p>
+                        We believe that every parent deserves the ability to present their case clearly and factually, free from the emotional manipulation and strategic abuse often present in these situations. We're here to turn stress into strategy and provide a lifeline of clarity in the chaos.
+                    </p>
+                    
+                    <div class="founder-separator"></div>
+
+                    <!-- Founder's Note Header with Icon --><div class="flex flex-col items-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-half text-custom-gold mb-3">
+                            <path d="M12 22s8-4 8-12V5l-8-3-8 3v5c0 8 8 12 8 12z"/>
+                            <path d="M12 22V10"/>
+                        </svg>
+                        <h2 class="text-3xl font-bold text-custom-gold text-center mb-0 text-custom-gold-shadow">A Note from Our Founder</h2>
+                    </div>
+
+                    <p>
+                        CustodyBuddy.com was born from necessity and forged in the fire of personal experience. My name is Danielle Pike, and I am the founder of this platform. I am also a visually impaired/legally blind mother to two wonderful autistic children, and I am a survivor of post-separation abuse.
+                    </p>
+                    <p>
+                        Navigating the family law system is a daunting task for anyone, but doing so with a visual disability while co-parenting with a toxic ex felt like an insurmountable mountain. The constant barrage of manipulative communication, the complex legal documents, and the emotional toll were overwhelming. I knew I needed a better way to fight for my children and my sanity.
+                    </p>
+                    <p>
+                        That's when I discovered the transformative power of Artificial Intelligence.
+                    </p>
+                    <p>
+                        AI became my equalizer. It could read and summarize dense legal filings for me, analyze hostile emails to extract objective facts, and help me draft responses that were professional, strategic, and stripped of the emotion my ex was trying to provoke. It was my tireless research assistant, helping me fact-check and find the information I needed to represent myself effectively.
+                    </p>
+                    <p>
+                        This was more than just a legal tool; it was a revolution for my mental health. By using AI to filter out the noise and focus on the facts, I took back my power.
+                    </p>
+                    <p>
+                        I created CustodyBuddy.com to share that power with you. My experience drives our core commitment: to deliver strictly factual and educational AI-powered tools. We are obsessed with accuracy and ensuring our AI provides clear, helpful information without the "hallucinations" or inaccuracies that can be so dangerous in a legal context.
+                    </p>
+
+                    <!-- Final Text and Image Column Section -->
+                    <div class="md:grid md:grid-cols-3 md:gap-8 items-start pt-8">
+                        <!-- Text Column (2/3 width on desktop) -->
+                        <div class="md:col-span-2 space-y-4">
+                            <p class="font-bold text-custom-gold/80">
+                                We are not lawyers, and this is not legal advice. We are a shield, a translator, and a strategic partner, here to help you build the strongest case possible to protect what matters most.
+                            </p>
+                            <p class="font-semibold text-center text-custom-gold pt-4">
+                                You are not alone. Let's build your case, together.
+                            </p>
+                        </div>
+                        <!-- Image Column (1/3 width on desktop) -->
+                        <div class="flex justify-center md:justify-end md:col-span-1 mt-8 md:mt-0">
+                            <img src="https://custodybuddy.com/about/AboutImg.png" alt="Danielle Pike, founder of CustodyBuddy, with a powerful quote: 'WHAT BROKE ME YESTERDAY IS THE WISDOM I USE TO PROTECT SOMEONE ELSE TODAY.'" class="rounded-lg shadow-xl max-w-xs h-auto w-full border-2 border-custom-gold/50" loading="lazy">
+                        </div>
+                    </div>
+
+                    <!-- Enhanced Sign-Off Block -->
+                    <p class="text-center font-extrabold text-white text-2xl border-t border-custom-gold/20 pt-4 mt-8">
+                        — Danielle Pike
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer (Standard Branding) --><footer class="bg-section-dark py-10 md:py-12 border-t border-custom-gold/20">
+        <div class="container mx-auto px-4 text-center text-gray-400">
+            <div class="mb-6">
+                 <a href="https://custodybuddy.com/" class="text-xl font-black transition-transform transform hover:scale-105">
+                    <span class="text-custom-gold">CUSTODY</span>
+                    <span class="text-white">BUDDY</span>
+                    <span class="text-custom-gold">.COM</span>
+                </a>
+            </div>
+            <div class="flex flex-wrap justify-center space-x-4 md:space-x-8 mb-6 text-sm md:text-base">
+                <a href="https://custodybuddy.com/" class="hover:text-custom-gold transition">Home</a>
+                <a href="https://custodybuddy.com/donate" class="hover:text-custom-gold transition">Donate</a>
+                <a href="https://custodybuddy.com/contact" class="hover:text-custom-gold transition">Contact</a> 
+                <a href="https://custodybuddy.com/terms-of-use" class="hover:text-custom-gold transition">Terms of Service</a>
+                <a href="https://custodybuddy.com/privacy-policy" class="hover:text-custom-gold transition">Privacy Policy</a>
+                <a href="https://custodybuddy.com/disclaimer" class="hover:text-custom-gold transition">Disclaimer</a>
+            </div>
+            <p class="text-xs max-w-3xl mx-auto italic border-t border-gray-800 pt-4 mt-4">
+                **Disclaimer:** CustodyBuddy.com is an AI-powered legal toolkit and resource hub, NOT a law firm. The content and tools provided are for informational and organizational purposes only and do not constitute legal advice. Always consult with a qualified legal professional for advice regarding your individual situation.
+            </p>
+            <p class="mt-6 text-sm">&copy; 2024 CustodyBuddy.com. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript --><script>
+        // Initialize Lucide Icons
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+
+        // Mobile Menu Toggle Function
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

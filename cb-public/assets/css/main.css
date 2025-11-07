@@ -1,0 +1,414 @@
+
+/* --------- Brand tokens (keep your originals; add cb-* aliases) --------- */
+:root{
+  /* existing brand tokens (already present in your file) */
+  --bg-custom-navy:#0d1a2e;
+  --bg-custom-dark-blue:#0B1C33;
+  --bg-custom-card-blue:#112542;
+  --text-custom-gold:#C2A85C;
+
+  /* incident-report style aliases */
+  --ink:#F8FAFC;
+  --muted:#9AA7B2;
+  --ring-gold: rgba(194,168,92,.6);
+
+  /* unified theme aliases */
+  --cb-bg: var(--bg-custom-dark-blue, #0B1C33);
+  --cb-card: var(--bg-custom-card-blue, #112542);
+  --cb-ink: var(--ink, #F8FAFC);
+  --cb-muted: var(--muted, #9AA7B2);
+  --cb-gold: var(--text-custom-gold, #C2A85C);
+}
+
+/* --------- Base (keeps HERO safe) ---------
+   We target general body + scoped content wrappers.
+   Your home hero typically uses its own classes; avoid overriding .hero explicitly.
+*/
+html { color-scheme: dark; }
+body{
+  background: var(--cb-bg);
+  color: var(--cb-ink);
+  font-family: ui-sans-serif, system-ui, Inter, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Content wrappers — HERO left alone (do NOT match .hero) */
+:where(.entry-content, .post-content, .prose, .content-area, .centered-headings){
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+/* Headings inside content only */
+:where(.entry-content, .post-content, .prose, .content-area, .centered-headings) h1,
+:where(.entry-content, .post-content, .prose, .content-area, .centered-headings) h2,
+:where(.entry-content, .post-content, .prose, .content-area, .centered-headings) h3{
+  color: var(--cb-ink);
+  letter-spacing: .2px;
+}
+
+/* Links (accessible, brand-consistent) */
+a{
+  color: var(--cb-gold);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+a:hover{ text-decoration-thickness: 2px; }
+
+/* Buttons (utility classes) */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:.5rem; padding:.625rem 1rem;
+  border-radius:.75rem; border:1px solid transparent;
+  font-weight:600; text-decoration:none; cursor:pointer;
+  outline: none;
+}
+.btn:focus-visible{ box-shadow: 0 0 0 3px var(--ring-gold); }
+
+/* Primary & secondary variants */
+.btn-primary{ background: var(--cb-gold); color:#0b1220; border-color: var(--cb-gold); }
+.btn-primary:hover{ filter: brightness(1.05); }
+
+.btn-secondary{ background: transparent; color: var(--cb-ink); border-color: rgba(255,255,255,.16); }
+.btn-secondary:hover{ background: rgba(255,255,255,.06); }
+
+/* Cards */
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0)) padding-box,
+              radial-gradient(120rem 120rem at 10% 10%, rgba(255,255,255,.12), transparent 40%) border-box;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+/* Inputs */
+.input, input[type="text"], input[type="email"], input[type="tel"], input[type="date"], input[type="time"],
+select, textarea{
+  width:100%;
+  color: var(--cb-ink);
+  background: rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:.75rem;
+  padding:.625rem .875rem;
+}
+.input:focus,
+input:focus, select:focus, textarea:focus{
+  outline:none; box-shadow: 0 0 0 3px var(--ring-gold);
+  border-color: var(--cb-gold);
+}
+
+/* Muted text */
+.muted{ color: var(--cb-muted); }
+
+/* Utility layout */
+.container{ max-width: 72rem; margin-inline:auto; padding-inline:1rem; }
+
+/* Keep home hero unaffected:
+   - Do not alter .hero class here
+   - Any decorative or “orb” backgrounds you keep below remain as-is
+*/
+
+
+/* --------- Brand tokens --------- */
+:root{
+  --bg-custom-navy:#0d1a2e;
+  --bg-custom-navy-rgb:13,26,46;
+
+  --bg-custom-dark-blue:#0B1C33;
+  --bg-custom-dark-blue-rgb:11,28,51;
+
+  --bg-custom-card-blue:#112542;
+  --bg-custom-card-blue-rgb:17,37,66;
+
+  --text-custom-gold:#C2A85C;
+  --text-custom-gold-rgb:194,168,92;
+
+  --bg-custom-gold:#C2A85C;
+  --hover-bg-custom-gold-light:#d0b975;
+
+  /* utilities */
+  --ring-gold: rgba(194,168,92,.35);
+}
+
+/* Global box model & smooth scroll */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+body{
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  background-color:#0d1a2e;                    /* fallback */
+  background-color:var(--bg-custom-navy);
+  color:#fff;
+}
+
+/* --------- Utilities (with fallbacks so validator is happy) --------- */
+.bg-custom-navy{ background-color:#0d1a2e; background-color:var(--bg-custom-navy); }
+.bg-custom-dark-blue{ background-color:#0B1C33; background-color:var(--bg-custom-dark-blue); }
+.bg-custom-card-blue{ background-color:#112542; background-color:var(--bg-custom-card-blue); }
+.text-custom-gold{ color:#C2A85C; color:var(--text-custom-gold); }
+.bg-custom-gold{ background-color:#C2A85C; background-color:var(--bg-custom-gold); }
+/* Tailwind-style variant needs escaping; keep as utility */
+.hover\:bg-custom-gold-light:hover{
+  background-color:#d0b975; background-color:var(--hover-bg-custom-gold-light);
+}
+/* This was flagged in your screenshot. Add fallback first, then var() */
+.border-custom-gold{
+  border-color:#C2A85C;
+  border-color:var(--text-custom-gold, #C2A85C); /* use text token as border by design */
+}
+
+/* --------- Backgrounds --------- */
+.how-it-works-bg{
+  background:
+    linear-gradient(45deg, rgba(255,255,255,.05) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.05) 75%, rgba(255,255,255,.05)),
+    linear-gradient(45deg, rgba(255,255,255,.05) 25%, #0B1C33 25%, #081524 75%, rgba(255,255,255,.05) 75%, rgba(255,255,255,.05)); /* fallbacks */
+  background:
+    linear-gradient(45deg, rgba(255,255,255,.05) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.05) 75%, rgba(255,255,255,.05)),
+    linear-gradient(45deg, rgba(255,255,255,.05) 25%, var(--bg-custom-dark-blue) 25%, #081524 75%, rgba(255,255,255,.05) 75%, rgba(255,255,255,.05));
+  background-size:20px 20px;
+  background-color:#0B1C33;                     /* fallback */
+  background-color:var(--bg-custom-dark-blue);
+}
+
+/* --------- Animations --------- */
+@keyframes fade-in-up{ from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fade-in-down{ from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fade-in{ from{opacity:0} to{opacity:1} }
+@keyframes slide-up{ from{opacity:0;transform:translateY(50px)} to{opacity:1;transform:translateY(0)} }
+
+.animate-fade-in-up{ animation:fade-in-up .6s ease-out forwards; }
+.animate-fade-in-down{ animation:fade-in-down .6s ease-out forwards; }
+.animate-fade-in{ animation:fade-in .6s ease-out forwards; }
+.delay-100{ animation-delay:.1s }
+.delay-200{ animation-delay:.2s }
+.delay-300{ animation-delay:.3s }
+.delay-400{ animation-delay:.4s }
+.delay-500{ animation-delay:.5s }
+
+/* --------- Custom scrollbar --------- */
+::-webkit-scrollbar{ width:8px; }
+::-webkit-scrollbar-track{
+  background:#0d1a2e; background:var(--bg-custom-navy);
+}
+::-webkit-scrollbar-thumb{
+  background:#112542; background:var(--bg-custom-card-blue);
+  border-radius:4px;
+}
+::-webkit-scrollbar-thumb:hover{ background:#193152; }
+
+/* --------- Recommended Resources (enhanced) --------- */
+.recommended-resources-bg{
+  background: linear-gradient(135deg,#0d1a2e 0%,#0B1C33 25%,#091629 50%,#0B1C33 75%,#0d1a2e 100%); /* fallback */
+  background: linear-gradient(135deg, var(--bg-custom-navy) 0%, var(--bg-custom-dark-blue) 25%, #091629 50%, var(--bg-custom-dark-blue) 75%, var(--bg-custom-navy) 100%);
+  position:relative;
+  overflow:hidden;
+}
+
+/* Decorative orbs – never block clicks; sit behind content */
+.floating-orb{
+  position:absolute;
+  border-radius:50%;
+  opacity:.1;
+  animation:orbit 15s linear infinite;
+  pointer-events:none;
+  z-index:-1;
+}
+
+.recommended-resources-bg::before{
+  content:'';
+  position:absolute; inset:0;
+  /* fallbacks for old validators */
+  background:
+    radial-gradient(circle at 20% 50%, rgba(194,168,92,.10) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(11,28,51,.10) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(17,37,66,.10) 0%, transparent 50%);
+  /* variable-driven */
+  background:
+    radial-gradient(circle at 20% 50%, rgba(var(--text-custom-gold-rgb), .10) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(var(--bg-custom-dark-blue-rgb), .10) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(var(--bg-custom-card-blue-rgb), .10) 0%, transparent 50%);
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{ transform:translateY(0) rotate(0) }
+  33%{ transform:translateY(-20px) rotate(1deg) }
+  66%{ transform:translateY(-10px) rotate(-1deg) }
+}
+
+@keyframes orbit{
+  0%{ transform:translateY(0) translateX(0) rotate(0) }
+  25%{ transform:translateY(-20px) translateX(20px) rotate(90deg) }
+  50%{ transform:translateY(0) translateX(40px) rotate(180deg) }
+  75%{ transform:translateY(20px) translateX(20px) rotate(270deg) }
+  100%{ transform:translateY(0) translateX(0) rotate(360deg) }
+}
+
+/* --------- Cards --------- */
+.glass-card{
+  position:relative;                       /* ensures z-index works */
+  z-index:0;
+  background: rgba(17,37,66,.80);          /* fallback */
+  background: rgba(var(--bg-custom-card-blue-rgb), .80);
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(194,168,92,.20);   /* fallback */
+  border:1px solid rgba(var(--text-custom-gold-rgb), .20);
+  transition: all .4s cubic-bezier(.4,0,.2,1);
+}
+.glass-card:hover{
+  z-index:2;                               /* raise above neighbors */
+  background: rgba(17,37,66,.90);          /* fallback */
+  background: rgba(var(--bg-custom-card-blue-rgb), .90);
+  border-color: rgba(194,168,92,.40);      /* fallback */
+  border-color: rgba(var(--text-custom-gold-rgb), .40);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 20px 40px rgba(0,0,0,.30),
+    0 0 20px rgba(194,168,92,.20);         /* soft gold glow */
+}
+
+/* Book imagery */
+.book-cover{
+  width:100%;
+  height:280px;
+  object-fit:contain;
+  border-radius:12px;
+  transition: all .4s ease;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+.glass-card:hover .book-cover{
+  transform:scale(1.05);
+  box-shadow:0 15px 40px rgba(0,0,0,.6);
+}
+
+/* Title glow */
+.title-glow{
+  text-shadow:0 0 20px rgba(194,168,92,.5); /* fallback */
+  text-shadow:0 0 20px rgba(var(--text-custom-gold-rgb), .5);
+  animation:glow 3s ease-in-out infinite alternate;
+}
+@keyframes glow{
+  from{ text-shadow:0 0 20px rgba(194,168,92,.5) }
+  to{ text-shadow:0 0 30px rgba(194,168,92,.8), 0 0 40px rgba(194,168,92,.3) }
+}
+
+/* Gradient text styles */
+.book-title-gradient{
+  transition: all .3s ease;
+  background: linear-gradient(45deg,#ffffff,#e5e7eb);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.glass-card:hover .book-title-gradient{
+  background: linear-gradient(45deg,#C2A85C,#d0b975); /* fallback */
+  background: linear-gradient(45deg,var(--text-custom-gold), var(--hover-bg-custom-gold-light));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  transform:translateY(-2px);
+}
+
+.section-subtitle-gradient{
+  background: linear-gradient(45deg,#C2A85C,#a1a1aa); /* fallback */
+  background: linear-gradient(45deg, var(--text-custom-gold), #a1a1aa);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+/* Layout helpers */
+.grid-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(320px,1fr));
+  gap:2rem;
+  max-width:1400px;
+  margin:0 auto;
+}
+@media (min-width:640px){ .book-cover{ height:300px } }
+@media (min-width:1024px){
+  .book-cover{ height:320px }
+  .grid-container{ gap:2.5rem }
+}
+
+/* Scroll reveal */
+.scroll-reveal{
+  opacity:0; transform:translateY(30px);
+  transition: all .6s ease;
+}
+.scroll-reveal.revealed{ opacity:1; transform:translateY(0) }
+.stagger-delay-1{ transition-delay:.1s }
+.stagger-delay-2{ transition-delay:.2s }
+.stagger-delay-3{ transition-delay:.3s }
+.stagger-delay-4{ transition-delay:.4s }
+.stagger-delay-5{ transition-delay:.5s }
+.stagger-delay-6{ transition-delay:.6s }
+.stagger-delay-7{ transition-delay:.7s }
+.stagger-delay-8{ transition-delay:.8s }
+.stagger-delay-9{ transition-delay:.9s }
+/* === Headings: center H1/H2, unify H1–H3 styling (scoped; hero unaffected) ===
+   Scope targets common WP content wrappers and our page wrapper.
+   It will NOT touch typical hero areas (e.g., .entry-header, .hero, header).
+*/
+
+/* CENTER H1/H2 (content area only) */
+:where(.entry-content, .post-content, .prose, .cb-article, .content-area, .centered-headings) h1,
+:where(.entry-content, .post-content, .prose, .cb-article, .content-area, .centered-headings) h2 {
+  text-align: center;
+}
+
+/* TYPOGRAPHY (content area only) */
+:where(.entry-content, .post-content, .prose, .cb-article, .content-area, .centered-headings) h1,
+:where(.entry-content, .post-content, .prose, .cb-article, .content-area, .centered-headings) h2,
+:where(.entry-content, .post-content, .prose, .cb-article, .content-area, .centered-headings) h3 {
+  font-family: var(--cb-font-heading, "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  margin: 0.6em 0 0.35em;
+}
+
+/* RESPONSIVE SIZES */
+:where(.entry-content, .post-content, .prose, .cb-article, .content-area, .centered-headings) h1 { 
+  font-size: clamp(1.9rem, 2vw + 1rem, 2.6rem); 
+}
+:where(.entry-content, .post-content, .prose, .cb-article, .content-area, .centered-headings) h2 { 
+  font-size: clamp(1.35rem, 1.2vw + 0.9rem, 1.8rem); 
+}
+:where(.entry-content, .post-content, .prose, .cb-article, .content-area, .centered-headings) h3 { 
+  font-size: clamp(1.15rem, 0.8vw + 0.85rem, 1.35rem); 
+}
+
+/* COLOR TOKENS (use your brand gold) */
+:root {
+  /* fallback if token missing */
+  --cb-white: #FFFFFF;
+}
+
+/* H1 — fallback color for older browsers */
+:where(.entry-content, .post-content, .prose, .cb-article, .content-area, .centered-headings) h1 {
+  color: var(--text-custom-gold, #C2A85C);
+}
+
+/* H1 — gold → white gradient (modern browsers) */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  :where(.entry-content, .post-content, .prose, .cb-article, .content-area, .centered-headings) h1 {
+    background-image: linear-gradient(180deg, var(--text-custom-gold, #C2A85C) 0%, var(--cb-white, #FFFFFF) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/* H2/H3 — unified gold style */
+:where(.entry-content, .post-content, .prose, .cb-article, .content-area, .centered-headings) h2,
+:where(.entry-content, .post-content, .prose, .cb-article, .content-area, .centered-headings) h3 {
+  color: var(--text-custom-gold, #C2A85C);
+}
+
+/* Optional: tighten the top spacing of the main page H1 inside content */
+:where(.content-area, .cb-article) .page-header h1 { margin-top: 0.25em; }

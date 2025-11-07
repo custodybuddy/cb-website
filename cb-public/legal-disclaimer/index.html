@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Disclaimer - CustodyBuddy.com</title>
+    <meta name="description" content="Official Legal Disclaimer for CustodyBuddy.com stating the Service does not provide legal advice.">
+    
+    <!-- Tailwind CSS Script -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Custom Tailwind configuration for consistency
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'custom-gold': '#FFD700', // Primary Accent
+                        'custom-gold-light': '#E9D09B', 
+                        'custom-dark-blue': '#0d1a2e', 
+                        'custom-navy-dark': '#010A1A', 
+                        'section-dark': '#0a0a0a',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                },
+            }
+        }
+
+        // JavaScript for Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const button = document.getElementById('mobile-menu-button');
+            const menu = document.getElementById('mobile-menu');
+            const iconMenu = document.getElementById('icon-menu');
+            const iconClose = document.getElementById('icon-close');
+
+            if (button && menu) {
+                button.addEventListener('click', () => {
+                    const isHidden = menu.classList.toggle('hidden');
+                    iconMenu.classList.toggle('hidden', !isHidden);
+                    iconClose.classList.toggle('hidden', isHidden);
+                });
+
+                // Close menu when a link is clicked (for better UX)
+                const links = menu.querySelectorAll('a');
+                links.forEach(link => {
+                    link.addEventListener('click', () => {
+                        menu.classList.add('hidden');
+                        iconMenu.classList.remove('hidden');
+                        iconClose.classList.add('hidden');
+                    });
+                });
+            }
+        });
+    </script>
+    
+    <!-- Custom Styles for Theme & Typography -->
+    <style>
+        body {
+            background-color: #000000;
+        }
+        .hero-background {
+            background-color: #010A1A; /* custom-navy-dark */
+        }
+    </style>
+
+    <!-- Inter Font Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-black text-white font-inter antialiased">
+
+    <!-- Header with full Navigation (Desktop & Mobile) -->
+    <header class="bg-black/90 sticky top-0 z-50 shadow-xl border-b border-gray-800">
+        <div class="container mx-auto px-4 max-w-7xl flex justify-between items-center py-4">
+    <!-- Navigation Bar -->
+    <nav id="main-nav" class="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur-sm nav-shadow py-4 transition-all duration-300 border-b border-gray-800">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <!-- BRANDING: CUSTODY (Gold), BUDDY (White), .COM (Gold) -->
+            <a href="https://custodybuddy.com" class="text-xl md:text-2xl font-black transition-transform transform hover:scale-105">
+                <span class="text-custom-gold">CUSTODY</span><span class="text-white">BUDDY</span><span class="text-custom-gold">.COM</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="https://custodybuddy.com" class="hover:text-custom-gold transition font-medium text-gray-300">Home</a>
+                <a href="#features" class="hover:text-custom-gold transition font-medium text-gray-300">Features</a>
+                <a href="/about" class="hover:text-custom-gold transition font-medium text-gray-300">About</a>
+                <a href="#recommended-reads" class="hover:text-custom-gold transition font-medium text-gray-300">Reads</a>
+                <a href="/donate" class="hover:text-custom-gold transition font-medium text-gray-300">Donate</a>
+                <a href="https://blog.custodybuddy.com" class="hover:text-custom-gold transition font-medium text-gray-300" target="_blank" rel="noopener noreferrer">Blog</a>
+                <a href="/contact" class="hover:text-custom-gold transition font-medium text-gray-300">Contact</a>
+                <a href="/incident-report" class="inline-block bg-custom-gold text-black font-semibold py-2 px-6 rounded-full shadow-lg transition-transform transform hover:scale-105 hover:shadow-custom-gold/40 border-2 border-custom-gold">
+                    Start Now
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg text-white hover:bg-gray-800 transition duration-300" aria-label="Toggle Menu">
+                <svg id="icon-menu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu (Collapsible) -->
+        <nav id="mobile-menu" class="hidden md:hidden bg-black/95 border-t border-gray-800 pb-4">
+            <div class="flex flex-col space-y-2 px-4 pt-2 text-base font-medium">
+                <a href="index.html" class="block py-2 text-gray-300 hover:text-custom-gold hover:bg-gray-800 rounded-lg transition duration-300">Home</a>
+                <a href="#features" class="block py-2 text-gray-300 hover:text-custom-gold hover:bg-gray-800 rounded-lg transition duration-300">Features</a>
+                <a href="donation.html" class="block py-2 text-gray-300 hover:text-custom-gold hover:bg-gray-800 rounded-lg transition duration-300">Donate</a>
+                <a href="#contact" class="block py-2 text-gray-300 hover:text-custom-gold hover:bg-gray-800 rounded-lg transition duration-300">Contact</a>
+                <a href="privacy_policy.html" class="block py-2 text-gray-300 hover:text-custom-gold hover:bg-gray-800 rounded-lg transition duration-300">Privacy Policy</a>
+                <a href="terms_of_service.html" class="block py-2 text-gray-300 hover:text-custom-gold hover:bg-gray-800 rounded-lg transition duration-300">Terms of Service</a>
+                <a href="legal_disclaimer.html" class="block py-2 text-custom-gold bg-gray-900 rounded-lg transition duration-300">Legal Disclaimer</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content: Legal Disclaimer -->
+    <main class="py-12 md:py-16 bg-custom-navy-dark">
+        <div class="container mx-auto px-4 max-w-4xl">
+            
+            <!-- Disclaimer Title -->
+            <h1 class="text-4xl md:text-5xl font-extrabold text-red-500 mb-4 tracking-tighter uppercase">
+                CRITICAL LEGAL DISCLAIMER
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-custom-gold mb-2">
+                CustodyBuddy.com Does Not Provide Legal Advice
+            </h2>
+            <p class="text-sm text-gray-400 mb-8 font-semibold border-b border-gray-700 pb-4">
+                **Last Updated:** October 19, 2024
+            </p>
+            
+            <!-- CORE WARNING SECTION -->
+            <section class="bg-red-900/40 border-4 border-red-500 p-8 rounded-xl shadow-2xl mb-12">
+                <h3 class="text-3xl font-bold mb-4 text-red-200">
+                    ATTENTION: NOT A LAW FIRM
+                </h3>
+                <p class="text-xl font-semibold text-red-100 leading-relaxed mb-6">
+                    CustodyBuddy.com is an **AI-powered informational tool**. We are not a law firm, nor are we a substitute for an attorney or law firm.
+                </p>
+                <ul class="list-disc ml-6 space-y-4 text-red-100 text-lg">
+                    <li>**No Legal Advice:** The information, documents, and output generated by this Service are **informational and educational only**. They do not constitute legal advice, recommendations, or official legal representation.</li>
+                    <li>**User Responsibility:** You are solely responsible for all documents, information, and actions taken based on your use of CustodyBuddy.com.</li>
+                    <li>**No Privilege:** The use of the Service does not establish an attorney-client relationship or any form of legal privilege.</li>
+                </ul>
+            </section>
+            
+            <hr class="my-10 border-gray-800">
+
+            <!-- Section 2: Reliance on Information -->
+            <section>
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-white border-b-4 border-custom-gold/50 pb-3">2. Reliance on Information and Accuracy</h2>
+                <div class="bg-section-dark p-6 rounded-xl mb-6 border-l-4 border-custom-gold shadow-lg">
+                    <p class="text-gray-200 mb-4 leading-relaxed">
+                        CustodyBuddy utilizes artificial intelligence models, which are subject to inherent limitations, including the possibility of generating incomplete, inaccurate, or outdated information ("hallucinations").
+                    </p>
+                    <ul class="list-disc ml-6 space-y-3 text-gray-200">
+                        <li>**Consult a Lawyer:** Before acting on any information, documents, or analyses generated by the Service, you **must** consult with a qualified legal professional licensed in your jurisdiction.</li>
+                        <li>**Jurisdictional Differences:** Legal requirements vary significantly by state, province, and country. The Service may not account for the specific laws applicable to your situation.</li>
+                        <li>**No Warranties:** We make no warranties, express or implied, regarding the accuracy, reliability, or completeness of the materials provided by the Service.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="my-10 border-gray-800">
+
+            <!-- Section 3: Limitation of Liability -->
+            <section>
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-white border-b-4 border-custom-gold/50 pb-3">3. Limitation of Liability</h2>
+                <div class="bg-section-dark p-6 rounded-xl mb-6 border-l-4 border-custom-gold shadow-lg">
+                    <p class="text-gray-200 leading-relaxed">
+                        To the maximum extent permitted by applicable law, CustodyBuddy.com shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages, including loss of profits, data, or other intangible losses, resulting from:
+                    </p>
+                    <ul class="list-disc ml-6 space-y-3 text-gray-200 mt-4">
+                        <li>Your use of or inability to use the Service.</li>
+                        <li>Any output or content generated by the Service.</li>
+                        <li>Your reliance on information obtained from the Service.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="my-10 border-gray-800">
+
+            <!-- Section 4: Contact Us -->
+            <section>
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-white border-b-4 border-custom-gold/50 pb-3">4. Acceptance of Terms</h2>
+                <p class="text-gray-200 mb-6 leading-relaxed">
+                    By using CustodyBuddy.com, you acknowledge and agree to this Legal Disclaimer in its entirety. If you do not agree, you must discontinue your use of the Service immediately.
+                </p>
+                
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-white border-b-4 border-custom-gold/50 pb-3">5. Questions</h2>
+                <p class="text-gray-200 mb-4 leading-relaxed">
+                    If you have any questions about this Legal Disclaimer, please contact us:
+                </p>
+                <p class="text-lg font-semibold text-custom-gold mb-2">By Email:</p>
+                <p class="font-mono text-xl text-white bg-black/50 p-3 inline-block rounded-lg border border-custom-gold/50">
+                    custodybuddyai@gmail.com
+                </p>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer for Context -->
+    <footer class="bg-section-dark py-6 border-t border-custom-gold/20 text-center text-gray-400">
+        <p class="text-sm">&copy; 2024 CustodyBuddy.com. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

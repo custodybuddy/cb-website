@@ -1,0 +1,64 @@
+/* === Headings: center H1/H2; H1 gradient; H2/H3 gold (hero untouched) === */
+/* Target only inside the article/content wrappers (not header/hero). */
+:root { --cb-white: #fff; }
+
+/* SPECIFICITY BOOST:
+   - scope to .content-area and common WP content wrappers
+   - include direct-child .page-header for the top H1 in this page
+*/
+.content-area :is(h1,h2,h3),
+.entry-content :is(h1,h2,h3),
+.post-content :is(h1,h2,h3),
+.prose :is(h1,h2,h3) {
+  font-family: var(--cb-font-heading, "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  margin: 0.6em 0 0.35em;
+}
+
+/* Center only H1/H2 in content */
+.content-area :is(h1,h2),
+.entry-content :is(h1,h2),
+.post-content :is(h1,h2),
+.prose :is(h1,h2) {
+  text-align: center;
+}
+
+/* Sizes */
+.content-area h1, .entry-content h1, .post-content h1, .prose h1 { font-size: clamp(1.9rem, 2vw + 1rem, 2.6rem); }
+.content-area h2, .entry-content h2, .post-content h2, .prose h2 { font-size: clamp(1.35rem, 1.2vw + 0.9rem, 1.8rem); }
+.content-area h3, .entry-content h3, .post-content h3, .prose h3 { font-size: clamp(1.15rem, 0.8vw + 0.85rem, 1.35rem); }
+
+/* Colors: use your brand gold token */
+.content-area h1,
+.entry-content h1,
+.post-content h1,
+.prose h1 {
+  /* Fallback if gradient not supported */
+  color: var(--text-custom-gold, #C2A85C);
+}
+
+/* H1 gradient gold → white */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .content-area h1,
+  .entry-content h1,
+  .post-content h1,
+  .prose h1 {
+    background-image: linear-gradient(180deg, var(--text-custom-gold, #C2A85C) 0%, var(--cb-white, #FFFFFF) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/* H2/H3 unified gold */
+.content-area :is(h2,h3),
+.entry-content :is(h2,h3),
+.post-content :is(h2,h3),
+.prose :is(h2,h3) {
+  color: var(--text-custom-gold, #C2A85C);
+}
+
+/* Optional: slightly reduce top margin on the page H1 inside header */
+.content-area .page-header > h1 { margin-top: 0.25em; }
